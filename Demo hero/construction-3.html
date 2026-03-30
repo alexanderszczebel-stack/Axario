@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cornerstone Built — The Builder's Grid</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Inter', sans-serif;
+      background: #f5f3ef;
+    }
+
+    /* ─── PAGE WRAPPER ────────────────────────────────────── */
+    .page {
+      width: 100%;
+      min-height: 100vh;
+      background: #f5f3ef;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ─── NAVIGATION ──────────────────────────────────────── */
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 72px;
+      background: #f5f3ef;
+      border-bottom: 1px solid rgba(20, 20, 20, 0.09);
+      position: relative;
+      z-index: 10;
+    }
+
+    .nav__left {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .nav__logo {
+      font-weight: 800;
+      font-size: 17px;
+      letter-spacing: -0.02em;
+      color: #141414;
+    }
+
+    .nav__logo span {
+      color: #cc3d00;
+    }
+
+    .nav__tagline {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      color: #8a8680;
+      padding-left: 48px;
+      border-left: 1px solid rgba(20,20,20,0.12);
+    }
+
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav__links a {
+      font-size: 12.5px;
+      font-weight: 500;
+      color: #5a5652;
+      text-decoration: none;
+      transition: color 0.25s;
+    }
+
+    .nav__links a:hover {
+      color: #141414;
+    }
+
+    .nav__phone {
+      font-size: 13px;
+      font-weight: 600;
+      color: #141414;
+      text-decoration: none;
+      transition: color 0.25s;
+    }
+
+    .nav__phone:hover {
+      color: #cc3d00;
+    }
+
+    /* ─── HERO CONTENT AREA ───────────────────────────────── */
+    .hero {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    /* ─── LEFT: HEADLINE + CONTENT ───────────────────────── */
+    .hero__left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 64px 64px 64px 72px;
+      position: relative;
+    }
+
+    /* Subtle red accent mark — left edge */
+    .hero__left::before {
+      content: '';
+      position: absolute;
+      left: 72px;
+      top: 64px;
+      width: 40px;
+      height: 3px;
+      background: #cc3d00;
+    }
+
+    .hero__eyebrow {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: #cc3d00;
+      margin-bottom: 40px;
+      margin-top: 24px;
+    }
+
+    .hero__headline {
+      font-weight: 800;
+      font-size: clamp(42px, 4vw, 60px);
+      line-height: 1.06;
+      letter-spacing: -0.03em;
+      color: #141414;
+      margin-bottom: 24px;
+      max-width: 480px;
+    }
+
+    .hero__sub {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: #6a6662;
+      max-width: 380px;
+      margin-bottom: 48px;
+    }
+
+    /* CTA row */
+    .hero__cta-row {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 56px;
+    }
+
+    .hero__cta-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #141414;
+      color: #f5f3ef;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 17px 30px;
+      transition: background 0.25s;
+    }
+
+    .hero__cta-primary:hover {
+      background: #cc3d00;
+    }
+
+    .hero__cta-phone {
+      font-size: 14px;
+      font-weight: 600;
+      color: #141414;
+      text-decoration: none;
+      letter-spacing: -0.01em;
+      border-bottom: 1.5px solid rgba(20,20,20,0.2);
+      padding-bottom: 2px;
+      transition: all 0.25s;
+    }
+
+    .hero__cta-phone:hover {
+      color: #cc3d00;
+      border-color: #cc3d00;
+    }
+
+    /* Credential strip */
+    .hero__credentials {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(20,20,20,0.1);
+    }
+
+    .hero__cred {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero__cred-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #cc3d00;
+      flex-shrink: 0;
+    }
+
+    .hero__cred-text {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #8a8680;
+    }
+
+    /* ─── RIGHT: IMAGE GRID ───────────────────────────────── */
+    .hero__grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 8px;
+      padding: 40px 72px 40px 40px;
+      overflow: hidden;
+    }
+
+    /* Big image: spans both rows on left column */
+    .grid-img {
+      position: relative;
+      overflow: hidden;
+      border-radius: 2px;
+    }
+
+    .grid-img--tall {
+      grid-row: span 2;
+    }
+
+    .grid-img__photo {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transition: transform 8s ease;
+    }
+
+    .grid-img:hover .grid-img__photo {
+      transform: scale(1.06);
+    }
+
+    .grid-img--1 .grid-img__photo {
+      background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80');
+    }
+
+    .grid-img--2 .grid-img__photo {
+      background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=700&q=80');
+    }
+
+    .grid-img--3 .grid-img__photo {
+      background-image: url('https://images.unsplash.com/photo-1590779033100-9f60a05a013d?w=700&q=80');
+    }
+
+    /* Overlay label on each image */
+    .grid-img__label {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      z-index: 5;
+      background: rgba(20,20,20,0.72);
+      padding: 5px 10px;
+      border-radius: 1px;
+    }
+
+    .grid-img__label-text {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+    }
+
+    /* A floating stat block over the grid */
+    .grid-stat-card {
+      position: absolute;
+      bottom: 56px;
+      right: 80px;
+      z-index: 20;
+      background: #cc3d00;
+      padding: 22px 24px;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(204,61,0,0.3);
+    }
+
+    .grid-stat-card__num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 42px;
+      color: #ffffff;
+      line-height: 1;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .grid-stat-card__label {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+    }
+
+    /* Numbers row at bottom */
+    .hero__stats-row {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 72px;
+      background: #141414;
+    }
+
+    .stats-row__item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .stats-row__num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 28px;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+    }
+
+    .stats-row__label {
+      font-size: 10.5px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.08em;
+      max-width: 80px;
+      line-height: 1.4;
+    }
+
+    .stats-row__divider {
+      width: 1px;
+      height: 28px;
+      background: rgba(255,255,255,0.08);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page">
+
+    <!-- Navigation -->
+    <nav class="nav">
+      <div class="nav__left">
+        <div class="nav__logo">Corner<span>stone</span> Built</div>
+        <span class="nav__tagline">Design. Build. Deliver.</span>
+      </div>
+      <ul class="nav__links">
+        <li><a href="#">Our Work</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Team</a></li>
+        <li><a href="#">Sectors</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <a href="tel:01132001100" class="nav__phone">0113 200 1100</a>
+    </nav>
+
+    <!-- Hero -->
+    <div class="hero">
+
+      <!-- Left: headline + content -->
+      <div class="hero__left">
+
+        <p class="hero__eyebrow">Building Yorkshire Since 1994</p>
+
+        <h1 class="hero__headline">
+          Build With<br>
+          The Best In<br>
+          The Business
+        </h1>
+
+        <p class="hero__sub">
+          Commercial developers, residential builders, and fit-out specialists
+          trusted by architects and developers across the North.
+        </p>
+
+        <div class="hero__cta-row">
+          <a href="#" class="hero__cta-primary">
+            View Our Work →
+          </a>
+          <a href="tel:01132001100" class="hero__cta-phone">0113 200 1100</a>
+        </div>
+
+        <div class="hero__credentials">
+          <div class="hero__cred">
+            <div class="hero__cred-dot"></div>
+            <span class="hero__cred-text">CHAS Accredited</span>
+          </div>
+          <div class="hero__cred">
+            <div class="hero__cred-dot"></div>
+            <span class="hero__cred-text">Constructionline Gold</span>
+          </div>
+          <div class="hero__cred">
+            <div class="hero__cred-dot"></div>
+            <span class="hero__cred-text">NHBC Registered</span>
+          </div>
+          <div class="hero__cred">
+            <div class="hero__cred-dot"></div>
+            <span class="hero__cred-text">ISO 9001:2015</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right: staggered image grid -->
+      <div class="hero__grid">
+
+        <!-- Tall left image -->
+        <div class="grid-img grid-img--tall grid-img--1">
+          <div class="grid-img__photo"></div>
+          <div class="grid-img__label">
+            <span class="grid-img__label-text">Residential · Leeds</span>
+          </div>
+        </div>
+
+        <!-- Short top-right -->
+        <div class="grid-img grid-img--2">
+          <div class="grid-img__photo"></div>
+          <div class="grid-img__label">
+            <span class="grid-img__label-text">Commercial · Sheffield</span>
+          </div>
+        </div>
+
+        <!-- Short bottom-right -->
+        <div class="grid-img grid-img--3">
+          <div class="grid-img__photo"></div>
+          <div class="grid-img__label">
+            <span class="grid-img__label-text">Industrial · Bradford</span>
+          </div>
+        </div>
+
+        <!-- Floating stat card -->
+        <div class="grid-stat-card">
+          <span class="grid-stat-card__num">600+</span>
+          <span class="grid-stat-card__label">Projects Completed</span>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Stats strip at bottom -->
+    <div class="hero__stats-row">
+      <div class="stats-row__item">
+        <span class="stats-row__num">30</span>
+        <span class="stats-row__label">Years in Business</span>
+      </div>
+      <div class="stats-row__divider"></div>
+      <div class="stats-row__item">
+        <span class="stats-row__num">600+</span>
+        <span class="stats-row__label">Projects Delivered</span>
+      </div>
+      <div class="stats-row__divider"></div>
+      <div class="stats-row__item">
+        <span class="stats-row__num">£400M+</span>
+        <span class="stats-row__label">Project Value</span>
+      </div>
+      <div class="stats-row__divider"></div>
+      <div class="stats-row__item">
+        <span class="stats-row__num">85</span>
+        <span class="stats-row__label">Directly Employed Staff</span>
+      </div>
+      <div class="stats-row__divider"></div>
+      <div class="stats-row__item">
+        <span class="stats-row__num">4.9★</span>
+        <span class="stats-row__label">Average Client Rating</span>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

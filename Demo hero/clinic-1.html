@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumière Clinic — The Luxury Editorial</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    /* ─── LAYOUT ─────────────────────────────────────────── */
+    .hero {
+      display: flex;
+      width: 100%;
+      height: 100vh;
+      min-height: 680px;
+      overflow: hidden;
+    }
+
+    /* Left — ivory content panel */
+    .hero__panel {
+      flex: 0 0 44%;
+      background: #faf6f0;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle warm paper gradient */
+    .hero__panel::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at bottom left, rgba(196, 120, 90, 0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Right — full-height doctor portrait */
+    .hero__portrait-side {
+      flex: 0 0 56%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero__portrait {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=1100&q=90');
+      background-size: cover;
+      background-position: center 15%;
+      transition: transform 14s ease;
+    }
+
+    .hero__portrait-side:hover .hero__portrait {
+      transform: scale(1.03);
+    }
+
+    /* Left edge soft fade where panel meets portrait */
+    .hero__portrait-edge {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 80px;
+      background: linear-gradient(to right, rgba(250, 246, 240, 0.15), transparent);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* Floating quote on photo */
+    .hero__photo-quote {
+      position: absolute;
+      bottom: 52px;
+      right: 44px;
+      z-index: 5;
+      max-width: 220px;
+      text-align: right;
+    }
+
+    .hero__photo-quote-mark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      line-height: 1;
+      color: rgba(255, 255, 255, 0.4);
+      display: block;
+      margin-bottom: -8px;
+    }
+
+    .hero__photo-quote-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    /* ─── PANEL NAVIGATION ────────────────────────────────── */
+    .panel-nav {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 36px 52px;
+    }
+
+    .panel-nav__logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 20px;
+      letter-spacing: 0.2em;
+      color: #2a2520;
+    }
+
+    .panel-nav__logo span {
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    .panel-nav__menu {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .panel-nav__menu a {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #9a8f84;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .panel-nav__menu a:hover {
+      color: #c4785a;
+    }
+
+    /* ─── PANEL BODY ──────────────────────────────────────── */
+    .panel-body {
+      position: relative;
+      z-index: 10;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 20px 52px 20px;
+    }
+
+    /* City/specialty tag */
+    .panel-tag {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+
+    .panel-tag__line {
+      width: 28px;
+      height: 1px;
+      background: #c4785a;
+    }
+
+    .panel-tag__text {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: #c4785a;
+    }
+
+    /* Headline */
+    .panel-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(42px, 3.5vw, 62px);
+      line-height: 1.1;
+      color: #2a2520;
+      letter-spacing: -0.01em;
+      margin-bottom: 28px;
+      max-width: 380px;
+    }
+
+    .panel-headline strong {
+      font-weight: 400;
+      font-style: normal;
+      color: #1a1512;
+    }
+
+    .panel-sub {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.85;
+      color: #7a7068;
+      max-width: 320px;
+      margin-bottom: 44px;
+    }
+
+    /* Credentials row */
+    .panel-credentials {
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+      margin-bottom: 44px;
+      padding-bottom: 44px;
+      border-bottom: 1px solid rgba(42, 37, 32, 0.1);
+    }
+
+    .panel-credential {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .panel-credential__icon {
+      width: 32px;
+      height: 32px;
+      border: 1px solid rgba(196, 120, 90, 0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .panel-credential__icon svg {
+      width: 14px;
+      height: 14px;
+      stroke: #c4785a;
+      fill: none;
+      stroke-width: 1.5;
+    }
+
+    .panel-credential__text {
+      font-size: 11px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #7a7068;
+    }
+
+    .panel-credential__text strong {
+      display: block;
+      color: #2a2520;
+      font-weight: 500;
+      font-size: 12px;
+      margin-bottom: 2px;
+    }
+
+    /* CTA group */
+    .panel-cta-group {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .panel-cta-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #2a2520;
+      text-decoration: none;
+      border: 1px solid #c4785a;
+      padding: 16px 28px;
+      transition: all 0.35s ease;
+    }
+
+    .panel-cta-primary:hover {
+      background: #c4785a;
+      color: #faf6f0;
+    }
+
+    .panel-cta-secondary {
+      font-size: 12px;
+      font-weight: 400;
+      color: #9a8f84;
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .panel-cta-secondary:hover {
+      color: #c4785a;
+    }
+
+    /* ─── PANEL FOOTER ────────────────────────────────────── */
+    .panel-footer {
+      position: relative;
+      z-index: 10;
+      padding: 22px 52px;
+      border-top: 1px solid rgba(42, 37, 32, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .panel-footer__doctor {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 14px;
+      color: #5a5048;
+    }
+
+    .panel-footer__doctor strong {
+      font-weight: 500;
+      color: #2a2520;
+      font-size: 15px;
+    }
+
+    .panel-footer__patients {
+      text-align: right;
+    }
+
+    .panel-footer__num {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 22px;
+      color: #c4785a;
+      display: block;
+    }
+
+    .panel-footer__label {
+      font-size: 9.5px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #9a8f84;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+
+    <!-- Left: ivory content panel -->
+    <div class="hero__panel">
+
+      <nav class="panel-nav">
+        <div class="panel-nav__logo"><span>Lumière</span> Clinic</div>
+        <ul class="panel-nav__menu">
+          <li><a href="#">Treatments</a></li>
+          <li><a href="#">Results</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </nav>
+
+      <div class="panel-body">
+
+        <div class="panel-tag">
+          <div class="panel-tag__line"></div>
+          <span class="panel-tag__text">Aesthetic Medicine · Mayfair</span>
+        </div>
+
+        <h1 class="panel-headline">
+          Restore Your<br>
+          <strong>Natural</strong><br>
+          Radiance
+        </h1>
+
+        <p class="panel-sub">
+          Personalised aesthetic treatments crafted with clinical precision
+          and a deep understanding of natural beauty.
+        </p>
+
+        <div class="panel-credentials">
+          <div class="panel-credential">
+            <div class="panel-credential__icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.3L12 17l-6.2 4.2 2.4-7.3L2 9.4h7.6z"/></svg>
+            </div>
+            <div class="panel-credential__text">
+              <strong>Board Certified</strong>
+              Aesthetic Physician, GMC
+            </div>
+          </div>
+          <div class="panel-credential">
+            <div class="panel-credential__icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+            </div>
+            <div class="panel-credential__text">
+              <strong>18 Years Experience</strong>
+              Advanced injectable specialist
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-cta-group">
+          <a href="#" class="panel-cta-primary">
+            Book a Consultation →
+          </a>
+          <a href="#" class="panel-cta-secondary">
+            <span>↗</span> See patient results
+          </a>
+        </div>
+
+      </div>
+
+      <div class="panel-footer">
+        <div class="panel-footer__doctor">
+          <strong>Dr. Sarah Mitchell, MD</strong><br>
+          Medical Director &amp; Founder
+        </div>
+        <div class="panel-footer__patients">
+          <span class="panel-footer__num">3,200+</span>
+          <span class="panel-footer__label">Patients Treated</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Right: doctor portrait -->
+    <div class="hero__portrait-side">
+      <div class="hero__portrait"></div>
+      <div class="hero__portrait-edge"></div>
+      <div class="hero__photo-quote">
+        <span class="hero__photo-quote-mark">"</span>
+        <span class="hero__photo-quote-text">Natural results that honour who you already are.</span>
+      </div>
+    </div>
+
+  </section>
+
+</body>
+</html>

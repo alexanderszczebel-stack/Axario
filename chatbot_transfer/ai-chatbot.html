@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI chatbot dla firm – chatbot na stronę internetową | Axario</title>
+    <meta
+      name="description"
+      content="AI chatbot dla firm, który odpowiada na pytania o ofertę, wyjaśnia usługi i kieruje do darmowej wyceny — również poza godzinami pracy."
+    />
+    <link rel="canonical" href="https://axario.pl/ai-chatbot.html" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-grid"></div>
+    <div class="bg-glow glow-1"></div>
+    <div class="bg-glow glow-2"></div>
+
+    <header class="site-header">
+      <div class="container nav">
+        <a href="index.html" class="logo">
+          <span class="logo-mark"></span>
+          <span>Axario</span>
+        </a>
+        <button class="nav-toggle" aria-label="Otwórz menu">
+          <span></span><span></span>
+        </button>
+        <nav class="nav-links" aria-label="Główna nawigacja">
+          <a href="strony-internetowe.html">Strony internetowe</a>
+          <a href="seo.html">SEO</a>
+          <a href="ai-chatbot.html">AI Chatbot</a>
+          <a href="index.html#realizacje">Realizacje</a>
+          <a href="cennik.html">Cennik</a>
+          <a href="kontakt.html">Kontakt</a>
+        </nav>
+        <a href="wycena.html" class="btn btn-sm btn-primary nav-cta">Darmowa wycena</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="section page-hero">
+        <div class="container page-hero-inner">
+          <div>
+            <div class="section-kicker">AI chatbot dla firm</div>
+            <h1>Klient pyta o ofertę o 22:00 — chatbot odpowiada od razu</h1>
+            <p>Wdrażamy chatbota dopasowanego do Twojej firmy — odpowiada na pytania, wyjaśnia zakres usług i kieruje do wyceny.</p>
+            <div class="hero-actions">
+              <a href="#demo" class="btn btn-lg btn-primary">Zobacz demo chatbota</a>
+              <a href="wycena.html" class="btn btn-lg btn-secondary">Zapytaj o wycenę wdrożenia</a>
+            </div>
+          </div>
+          <div class="glass content-block">
+            <h2>Po co firmie AI chatbot?</h2>
+            <p>
+              Nie po to, żeby zastąpić człowieka, ale żeby przejąć pierwsze, powtarzalne pytania, pomóc klientowi zrozumieć
+              ofertę i zachęcić go do zostawienia kontaktu, gdy Ty nie możesz odpisać od razu.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="jak-dziala">
+        <div class="container content-grid">
+          <article class="glass content-block">
+            <h2>Jak działa chatbot na stronie</h2>
+            <ul class="bullet-list" style="margin-top: 6px">
+              <li>Jest osadzony jako widoczny, ale nienachalny element strony.</li>
+              <li>Wie, czym zajmuje się Twoja firma i jakie usługi oferujesz.</li>
+              <li>Odpowiada na najczęstsze pytania (np. cena, terminy, zakres usług).</li>
+              <li>Zbiera dane kontaktowe i przekazuje je dalej – na e-mail lub do CRM.</li>
+              <li>Może zasugerować wypełnienie formularza darmowej wyceny lub kontakt telefoniczny.</li>
+            </ul>
+          </article>
+          <aside class="glass content-block">
+            <h2>Gdzie chatbot sprawdza się najlepiej</h2>
+            <div class="stacked-list" style="margin-top: 8px">
+              <div class="stacked-item">
+                <strong>Kliniki i gabinety</strong>
+                <span>Odpowiedzi na pytania o zabiegi, wolne terminy i możliwości konsultacji.</span>
+              </div>
+              <div class="stacked-item">
+                <strong>Firmy usługowe</strong>
+                <span>Wstępne pytania o zakres usługi, lokalizację, terminy i orientacyjne widełki cenowe.</span>
+              </div>
+              <div class="stacked-item">
+                <strong>Lokalne biznesy</strong>
+                <span>Godziny otwarcia, dojazd, menu, rodzaje usług – bez konieczności każdorazowej odpowiedzi na te same pytania.</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section section-soft" id="demo">
+        <div class="container chatbot-grid">
+          <div>
+            <div class="section-heading left compact">
+              <div class="section-kicker">Demo AI chatbota</div>
+              <h2>Jak może wyglądać rozmowa z Twoim firmowym chatbotem</h2>
+              <p>
+                W realnym wdrożeniu chatbot jest zasilany informacjami o Twojej firmie, ofercie i najczęstszych pytaniach klientów.
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <section class="chatbot-card glass" aria-label="Demo AI chatbota">
+              <header class="chatbot-header">
+                <div>
+                  <strong>Asystent AI Twojej strony</strong>
+                  <p>Zapytaj o wycenę, zakres strony lub połączenie z SEO i chatbotem.</p>
+                </div>
+                <span class="live-pill">
+                  <span class="status-dot"></span>
+                  24/7
+                </span>
+              </header>
+              <div class="chat-window" id="chatWindow" aria-live="polite"></div>
+              <div class="chat-suggestions">
+                <button type="button" class="suggestion-chip">Czy warto wdrożyć AI chatbota na stronie?</button>
+                <button type="button" class="suggestion-chip">Jak chatbot może pomóc mojej firmie usługowej?</button>
+                <button type="button" class="suggestion-chip">Czy chatbot współpracuje z formularzem wyceny?</button>
+              </div>
+              <form id="chatForm" class="chat-input-wrap" autocomplete="off">
+                <label class="sr-only" for="chatInput">Napisz wiadomość do chatbota</label>
+                <input
+                  id="chatInput"
+                  type="text"
+                  name="message"
+                  placeholder="Napisz np. „Prowadzę klinikę, czy chatbot ma sens?""
+                />
+                <button type="submit" class="btn btn-primary btn-sm">Zapytaj AI</button>
+              </form>
+              <p class="chat-helper">
+                Demo jest uproszczone – w rzeczywistości chatbot jest dopasowany do Twojej branży, cennika i stylu komunikacji.
+              </p>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-heading">
+            <div class="section-kicker">Korzyści z AI chatbota</div>
+            <h2>Chatbot, który pracuje na Twoje wyniki — nie tylko wygląda nowocześnie</h2>
+          </div>
+          <div class="why-grid">
+            <div class="glass why-card">
+              <h3>Klient nie czeka — chatbot odpowiada w sekundy</h3>
+              <p>Każda sekunda zwłoki zwiększa ryzyko, że klient przejdzie do konkurencji. Chatbot reaguje natychmiast.</p>
+            </div>
+            <div class="glass why-card">
+              <h3>Ty rozmawiasz z gotowymi do zakupu</h3>
+              <p>Chatbot przejmuje wstępne pytania i kwalifikuje zainteresowanie — Ty dostajesz tylko wartościowe zapytania.</p>
+            </div>
+            <div class="glass why-card">
+              <h3>24/7 — również w niedzielę o 23:00</h3>
+              <p>Klienci przeglądają strony wieczorami i w weekendy. Chatbot pracuje, gdy Ty odpoczywasz.</p>
+            </div>
+            <div class="glass why-card">
+              <h3>Leady do CRM lub na e-mail</h3>
+              <p>Każda rozmowa może zakończyć się zebraniem danych kontaktowych — gotowych do dalszego działania.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-soft">
+        <div class="container faq">
+          <div class="section-heading">
+            <div class="section-kicker">FAQ</div>
+            <h2>Najczęstsze pytania o AI chatbota</h2>
+          </div>
+          <div class="faq-list">
+            <button class="faq-item" type="button">
+              <span>Czy chatbot AI można dodać do nowej lub obecnej strony?</span>
+              <span class="faq-icon">+</span>
+              <div class="faq-content">
+                <p>
+                  Tak. Możemy wdrożyć chatbota zarówno na nowo tworzonej stronie, jak i na istniejącej witrynie – po krótkim
+                  sprawdzeniu warunków technicznych.
+                </p>
+              </div>
+            </button>
+            <button class="faq-item" type="button">
+              <span>Czy chatbot będzie znał moją ofertę?</span>
+              <span class="faq-icon">+</span>
+              <div class="faq-content">
+                <p>
+                  Tak. Na etapie wdrożenia przekazujesz nam materiały o firmie i ofercie. Na ich podstawie konfigurujemy
+                  chatbota, aby odpowiadał zgodnie z tym, co naprawdę oferujesz.
+                </p>
+              </div>
+            </button>
+            <button class="faq-item" type="button">
+              <span>Czy chatbot może przekazywać leady do mojego CRM lub maila?</span>
+              <span class="faq-icon">+</span>
+              <div class="faq-content">
+                <p>
+                  Tak. Możliwe są integracje z CRM-em, systemem ticketowym lub zwykłą skrzynką mailową. Zakres integracji
+                  ustalamy indywidualnie przy wycenie.
+                </p>
+              </div>
+            </button>
+            <button class="faq-item" type="button">
+              <span>Czy klient wie, że rozmawia z AI?</span>
+              <span class="faq-icon">+</span>
+              <div class="faq-content">
+                <p>
+                  Tak. Komunikujemy jasno, że to asystent AI. Gdy rozmowa wymaga kontaktu z człowiekiem, chatbot może
+                  zaproponować zostawienie danych lub przekierować użytkownika na stronę kontaktu.
+                </p>
+              </div>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="quote-panel glass">
+            <div class="quote-copy">
+              <div class="section-kicker">Zrób pierwszy krok</div>
+              <h2>Sprawdź, jak chatbot może działać na Twojej stronie — bezpłatna wycena wdrożenia</h2>
+              <p style="color: var(--muted); font-size: 15px; margin: 8px 0 14px;">Opisz firmę i model kontaktu z klientem. Zaproponujemy konfigurację dopasowaną do Twojej branży.</p>
+              <div class="quote-benefits">
+                <span>Bez zobowiązań</span>
+                <span>Odpowiedź w 1–2 dni robocze</span>
+              </div>
+            </div>
+            <div class="stacked-list">
+              <div class="stacked-item">
+                <strong>Wdrożenie na nowej lub istniejącej stronie</strong>
+                <span>Chatbot możemy dodać zarówno do nowo projektowanej witryny, jak i do obecnej strony klienta.</span>
+              </div>
+              <div class="stacked-item">
+                <strong>Chatbot zna Twoją ofertę</strong>
+                <span>Nie używamy gotowego szablonu — konfigurujemy asystenta pod konkretną firmę, cennik i typ pytań.</span>
+              </div>
+              <a href="wycena.html" class="btn btn-primary full-width">Poproś o darmową wycenę wdrożenia →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="chat-floating" aria-hidden="false">
+      <button class="chat-launcher" type="button" aria-label="Otwórz chat z asystentem AI">
+        <span class="chat-launcher-dot">AI</span>
+        <span class="chat-launcher-label">Zapytaj o chatbota</span>
+      </button>
+    </div>
+    <div class="chat-overlay" aria-hidden="true"></div>
+    <section class="chat-popup" aria-label="Chat z asystentem AI" aria-hidden="true">
+      <div class="chat-popup-inner glass">
+        <header class="chat-popup-header">
+          <div class="chat-popup-header-title">
+            <strong>Asystent AI – wdrożenie chatbota</strong>
+            <span>Porozmawiajmy, jak chatbot może działać w Twojej firmie.</span>
+          </div>
+          <button class="chat-popup-close" type="button" aria-label="Zamknij chat">
+            ×
+          </button>
+        </header>
+        <div class="chat-window" id="chatWindowFloating" aria-live="polite"></div>
+        <div class="chat-suggestions">
+          <button type="button" class="suggestion-chip">Czy chatbot ma sens w mojej branży?</button>
+          <button type="button" class="suggestion-chip">Jak chatbot kieruje klientów do wyceny?</button>
+          <button type="button" class="suggestion-chip">Jak wygląda wycena wdrożenia chatbota?</button>
+        </div>
+        <form id="chatFormFloating" class="chat-input-wrap" autocomplete="off">
+          <label class="sr-only" for="chatInputFloating">Napisz wiadomość do chatbota</label>
+          <input
+            id="chatInputFloating"
+            type="text"
+            name="message"
+            placeholder="Opisz, jak dziś wygląda kontakt z klientami i czego oczekujesz od chatbota..."
+          />
+          <button type="submit" class="btn btn-primary btn-sm">Wyślij</button>
+        </form>
+        <p class="chat-popup-footer">
+          Demo – w produkcji chatbot zna procesy w Twojej firmie i może przekazywać rozmowy do odpowiedniego zespołu.
+        </p>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="container footer-content">
+        <div>
+          <div class="logo footer-logo">
+            <span class="logo-mark"></span>
+            <span>Axario</span>
+          </div>
+          <p>
+            Nowoczesne strony internetowe dla firm w Polsce – z mocnym SEO foundation i AI chatbotem, który wspiera kontakt
+            z klientami 24/7.
+          </p>
+        </div>
+        <div class="footer-links">
+          <div>
+            <strong>Oferta</strong>
+            <a href="strony-internetowe.html">Strony internetowe</a>
+            <a href="seo.html">SEO</a>
+            <a href="ai-chatbot.html">AI Chatbot</a>
+          </div>
+          <div>
+            <strong>Firma</strong>
+            <a href="index.html#realizacje">Realizacje</a>
+            <a href="blog.html">Blog</a>
+            <a href="kontakt.html">Kontakt</a>
+          </div>
+          <div>
+            <strong>Formalności</strong>
+            <a href="#" aria-disabled="true">Polityka prywatności</a>
+            <a href="wycena.html">Darmowa wycena</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+

@@ -1,0 +1,1790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Axario — Premium Web Design Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #0a0908;
+      font-family: 'Inter', sans-serif;
+      color: #eeeae0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Grain texture */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.032'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ─── SHARED ─────────────────────────────────────────────── */
+    .section-label {
+      font-size: 9.5px;
+      font-weight: 500;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: rgba(238, 234, 224, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 1px;
+      background: rgba(238, 234, 224, 0.2);
+    }
+
+    .lime { color: #b5ff45; }
+
+    /* ─────────────────────────────────────────────────────────
+       NAVIGATION — sticky
+    ───────────────────────────────────────────────────────── */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 30px 72px;
+      transition: background 0.4s ease, padding 0.4s ease, border-color 0.4s ease;
+      border-bottom: 1px solid transparent;
+    }
+
+    .nav.scrolled {
+      background: rgba(10, 9, 8, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 20px 72px;
+      border-bottom-color: rgba(238, 234, 224, 0.06);
+    }
+
+    .nav__logo {
+      font-weight: 700;
+      font-size: 17px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #eeeae0;
+      text-decoration: none;
+    }
+
+    .nav__logo::after {
+      content: '';
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #b5ff45;
+      margin-left: 4px;
+      vertical-align: super;
+    }
+
+    .nav__center {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .nav__link {
+      font-size: 11.5px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(238, 234, 224, 0.38);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav__link:hover {
+      color: rgba(238, 234, 224, 0.82);
+    }
+
+    .nav__cta {
+      font-size: 11.5px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(238, 234, 224, 0.7);
+      text-decoration: none;
+      border: 1px solid rgba(238, 234, 224, 0.18);
+      padding: 10px 20px;
+      transition: all 0.3s;
+    }
+
+    .nav__cta:hover {
+      border-color: rgba(238, 234, 224, 0.42);
+      color: #eeeae0;
+    }
+
+    /* ─────────────────────────────────────────────────────────
+       HERO
+    ───────────────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 700px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .hero__ghost {
+      position: absolute;
+      bottom: -80px;
+      right: -40px;
+      z-index: 1;
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      font-size: 320px;
+      letter-spacing: -0.05em;
+      color: rgba(238, 234, 224, 0.018);
+      user-select: none;
+      pointer-events: none;
+      line-height: 1;
+    }
+
+    .hero__body {
+      position: relative;
+      z-index: 5;
+      flex: 1;
+      display: flex;
+      align-items: flex-start;
+      padding: 0 72px;
+      padding-top: clamp(36px, 5vh, 72px);
+      margin-top: 90px;
+    }
+
+    .hero__left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding-right: 60px;
+    }
+
+    .hero__eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .hero__eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #b5ff45;
+    }
+
+    .hero__eyebrow-text {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(238, 234, 224, 0.35);
+    }
+
+    .hero__headline {
+      margin-bottom: 36px;
+    }
+
+    .hl-preface {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: clamp(14px, 1.4vw, 20px);
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(238, 234, 224, 0.38);
+      margin-bottom: 8px;
+    }
+
+    .hl-serif {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(78px, 9.5vw, 132px);
+      line-height: 0.88;
+      color: #eeeae0;
+      letter-spacing: -0.01em;
+      margin-bottom: 4px;
+    }
+
+    .hl-sans {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      font-size: clamp(44px, 5.5vw, 78px);
+      line-height: 1.0;
+      color: #eeeae0;
+      letter-spacing: -0.03em;
+    }
+
+    .hl-accent { color: #b5ff45; }
+
+    .hero__descriptor {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: rgba(238, 234, 224, 0.42);
+      max-width: 380px;
+      margin-bottom: 48px;
+      letter-spacing: 0.02em;
+    }
+
+    .hero__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(238, 234, 224, 0.82);
+      text-decoration: none;
+      transition: all 0.35s ease;
+      width: fit-content;
+    }
+
+    .hero__cta:hover { color: #eeeae0; gap: 20px; }
+
+    .hero__cta-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border: 1px solid #b5ff45;
+      border-radius: 50%;
+      color: #b5ff45;
+      font-size: 14px;
+      transition: all 0.35s ease;
+    }
+
+    .hero__cta:hover .hero__cta-arrow {
+      background: #b5ff45;
+      color: #0a0908;
+    }
+
+    /* ─── project cards ─── */
+    .hero__right {
+      flex: 0 0 420px;
+      position: relative;
+      height: 460px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero__right::before {
+      content: '';
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(181, 255, 69, 0.03) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .project-card {
+      position: absolute;
+      border-radius: 3px;
+      overflow: hidden;
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+
+    .project-card:hover {
+      z-index: 10;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.7);
+    }
+
+    .card-law {
+      width: 228px;
+      height: 152px;
+      background: #14110e;
+      border: 1px solid rgba(201, 169, 110, 0.15);
+      top: 20px;
+      left: 20px;
+      transform: rotate(-2deg);
+    }
+
+    .card-law:hover { transform: rotate(-1deg) scale(1.04); }
+
+    .card-law__top { height: 3px; background: linear-gradient(to right, #c9a96e, rgba(201,169,110,0.3)); }
+
+    .card-law__body { padding: 18px 20px; }
+
+    .card-law__firm {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 9.5px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(201, 169, 110, 0.7);
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .card-law__headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 22px;
+      line-height: 1.1;
+      color: rgba(238, 230, 210, 0.88);
+    }
+
+    .card-law__headline em { font-style: italic; }
+
+    .card-law__rule {
+      width: 28px;
+      height: 1px;
+      background: rgba(201, 169, 110, 0.35);
+      margin: 12px 20px;
+    }
+
+    .card-law__cta {
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(201, 169, 110, 0.45);
+      padding: 0 20px;
+    }
+
+    .card-clinic {
+      width: 192px;
+      height: 128px;
+      background: #faf6f0;
+      border: 1px solid rgba(196, 120, 90, 0.1);
+      top: 90px;
+      right: 10px;
+      transform: rotate(2.5deg);
+    }
+
+    .card-clinic:hover { transform: rotate(1.5deg) scale(1.04); }
+
+    .card-clinic__top { height: 2px; background: #c4785a; }
+
+    .card-clinic__body { padding: 14px 16px; }
+
+    .card-clinic__tag {
+      font-size: 8px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: #c4785a;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .card-clinic__name {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: 20px;
+      line-height: 1.15;
+      color: #2a2520;
+      display: block;
+      margin-bottom: 14px;
+    }
+
+    .card-clinic__cta {
+      font-size: 8px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(42, 37, 32, 0.35);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .card-clinic__cta::before {
+      content: '';
+      width: 14px;
+      height: 1px;
+      background: #c4785a;
+    }
+
+    .card-build {
+      width: 240px;
+      height: 140px;
+      background: #111111;
+      border-left: 3px solid #f5a623;
+      border-top: 1px solid rgba(245, 166, 35, 0.12);
+      border-right: 1px solid rgba(255,255,255,0.04);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%) rotate(1deg);
+    }
+
+    .card-build:hover { transform: translateX(-50%) rotate(0.5deg) scale(1.04); }
+
+    .card-build__body { padding: 18px 18px 14px 20px; }
+
+    .card-build__eyebrow {
+      font-size: 8.5px;
+      font-weight: 500;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: #f5a623;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .card-build__num {
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      font-size: 38px;
+      line-height: 1;
+      color: rgba(255, 255, 255, 0.92);
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .card-build__sub {
+      font-size: 9px;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.28);
+    }
+
+    .card-industry-tag {
+      position: absolute;
+      top: -22px;
+      left: 0;
+      font-size: 8.5px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(238, 234, 224, 0.22);
+    }
+
+    /* ─── hero bottom strip ─── */
+    .hero-bottom {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 72px;
+      border-top: 1px solid rgba(238, 234, 224, 0.07);
+      flex-shrink: 0;
+    }
+
+    .hero-bottom__availability {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hero-bottom__avail-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #b5ff45;
+      box-shadow: 0 0 8px rgba(181, 255, 69, 0.5);
+    }
+
+    .hero-bottom__avail-text {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      color: rgba(238, 234, 224, 0.35);
+    }
+
+    .hero-bottom__services {
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-bottom__service {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(238, 234, 224, 0.25);
+      padding: 0 20px;
+      border-right: 1px solid rgba(238, 234, 224, 0.1);
+    }
+
+    .hero-bottom__service:last-child { border-right: none; padding-right: 0; }
+    .hero-bottom__service:first-child { padding-left: 0; }
+
+    /* ─────────────────────────────────────────────────────────
+       SECTION: NUMBERS / PROOF
+    ───────────────────────────────────────────────────────── */
+    .proof {
+      padding: 100px 72px;
+      display: flex;
+      align-items: flex-start;
+      gap: 0;
+      border-bottom: 1px solid rgba(238, 234, 224, 0.07);
+    }
+
+    .proof__intro {
+      flex: 0 0 340px;
+      padding-right: 60px;
+    }
+
+    .proof__intro-label {
+      margin-bottom: 28px;
+    }
+
+    .proof__intro-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 32px;
+      line-height: 1.25;
+      color: rgba(238, 234, 224, 0.7);
+    }
+
+    .proof__intro-text em {
+      font-style: italic;
+      color: #eeeae0;
+    }
+
+    .proof__stats {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+
+    .proof__stat {
+      padding: 0 40px;
+      border-right: 1px solid rgba(238, 234, 224, 0.07);
+    }
+
+    .proof__stat:first-child { padding-left: 0; }
+    .proof__stat:last-child { border-right: none; }
+
+    .proof__stat-num {
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      font-size: 52px;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      color: #eeeae0;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .proof__stat-num sup {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0;
+      vertical-align: super;
+      color: #b5ff45;
+    }
+
+    .proof__stat-label {
+      font-size: 10.5px;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(238, 234, 224, 0.32);
+      line-height: 1.5;
+    }
+
+    /* ─────────────────────────────────────────────────────────
+       SECTION: SELECTED WORK
+    ───────────────────────────────────────────────────────── */
+    .work {
+      padding: 120px 72px;
+    }
+
+    .work__header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 72px;
+    }
+
+    .work__heading-group {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .work__heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(48px, 5.5vw, 74px);
+      line-height: 0.92;
+      color: #eeeae0;
+    }
+
+    .work__heading em {
+      font-style: italic;
+    }
+
+    .work__view-all {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(238, 234, 224, 0.42);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: color 0.3s, gap 0.3s;
+      white-space: nowrap;
+      padding-bottom: 4px;
+    }
+
+    .work__view-all::after {
+      content: '→';
+      font-size: 14px;
+    }
+
+    .work__view-all:hover {
+      color: rgba(238, 234, 224, 0.8);
+      gap: 16px;
+    }
+
+    /* Project rows */
+    .work__list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .work__item {
+      display: grid;
+      grid-template-columns: 60px 1fr 180px 180px 56px;
+      align-items: center;
+      padding: 28px 0;
+      border-top: 1px solid rgba(238, 234, 224, 0.07);
+      cursor: pointer;
+      transition: background 0.3s;
+      position: relative;
+    }
+
+    .work__item:last-child {
+      border-bottom: 1px solid rgba(238, 234, 224, 0.07);
+    }
+
+    .work__item::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(238, 234, 224, 0.02);
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+    }
+
+    .work__item:hover::before { opacity: 1; }
+
+    .work__item-num {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      color: rgba(238, 234, 224, 0.2);
+    }
+
+    .work__item-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 28px;
+      line-height: 1;
+      color: rgba(238, 234, 224, 0.85);
+      transition: color 0.3s;
+    }
+
+    .work__item:hover .work__item-title {
+      color: #eeeae0;
+    }
+
+    .work__item-title em { font-style: italic; }
+
+    .work__item-industry {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(238, 234, 224, 0.28);
+    }
+
+    .work__item-services {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(238, 234, 224, 0.22);
+    }
+
+    .work__item-arrow {
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(238, 234, 224, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: rgba(238, 234, 224, 0.3);
+      justify-self: end;
+      transition: all 0.3s;
+    }
+
+    .work__item:hover .work__item-arrow {
+      border-color: #b5ff45;
+      color: #b5ff45;
+      background: rgba(181, 255, 69, 0.06);
+    }
+
+    /* Inline color accent for industries */
+    .accent-gold { color: rgba(201, 169, 110, 0.65); }
+    .accent-terracotta { color: rgba(196, 120, 90, 0.65); }
+    .accent-amber { color: rgba(245, 166, 35, 0.65); }
+    .accent-blue { color: rgba(130, 180, 220, 0.65); }
+
+    /* ─────────────────────────────────────────────────────────
+       SECTION: SERVICES
+    ───────────────────────────────────────────────────────── */
+    .services {
+      padding: 120px 72px;
+      border-top: 1px solid rgba(238, 234, 224, 0.07);
+      background: #0d0c0b;
+    }
+
+    .services__header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 80px;
+    }
+
+    .services__heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(48px, 5vw, 70px);
+      line-height: 0.94;
+      color: #eeeae0;
+    }
+
+    .services__heading em { font-style: italic; }
+
+    .services__intro {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .services__intro-label {
+      margin-bottom: 24px;
+    }
+
+    .services__intro-p {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: rgba(238, 234, 224, 0.42);
+      max-width: 460px;
+    }
+
+    /* Service cards grid */
+    .services__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(238, 234, 224, 0.07);
+    }
+
+    .service-card {
+      background: #0d0c0b;
+      padding: 44px 40px;
+      transition: background 0.35s;
+      cursor: default;
+    }
+
+    .service-card:hover {
+      background: #111009;
+    }
+
+    .service-card__num {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      color: #b5ff45;
+      margin-bottom: 32px;
+      display: block;
+    }
+
+    .service-card__title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 30px;
+      line-height: 1.1;
+      color: #eeeae0;
+      margin-bottom: 20px;
+    }
+
+    .service-card__title em { font-style: italic; }
+
+    .service-card__desc {
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: rgba(238, 234, 224, 0.38);
+      margin-bottom: 36px;
+    }
+
+    .service-card__list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .service-card__list li {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(238, 234, 224, 0.28);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .service-card__list li::before {
+      content: '';
+      width: 12px;
+      height: 1px;
+      background: rgba(238, 234, 224, 0.2);
+      flex-shrink: 0;
+    }
+
+    /* ─────────────────────────────────────────────────────────
+       SECTION: STUDIO
+    ───────────────────────────────────────────────────────── */
+    .studio {
+      padding: 140px 72px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      align-items: center;
+    }
+
+    .studio__left {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .studio__label {
+      margin-bottom: 36px;
+    }
+
+    .studio__heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(44px, 4.5vw, 64px);
+      line-height: 1;
+      color: #eeeae0;
+      margin-bottom: 32px;
+    }
+
+    .studio__heading em { font-style: italic; }
+
+    .studio__body {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.85;
+      color: rgba(238, 234, 224, 0.45);
+      margin-bottom: 52px;
+    }
+
+    .studio__body p + p {
+      margin-top: 18px;
+    }
+
+    .studio__signature {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 22px;
+      color: rgba(238, 234, 224, 0.55);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .studio__signature-name {
+      font-size: 13px;
+      font-family: 'Inter', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(238, 234, 224, 0.25);
+    }
+
+    .studio__right {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .studio__panel {
+      background: #0f0e0c;
+      padding: 36px 40px;
+      border-left: 2px solid rgba(238, 234, 224, 0.06);
+      transition: border-color 0.3s;
+    }
+
+    .studio__panel:hover {
+      border-left-color: rgba(181, 255, 69, 0.35);
+    }
+
+    .studio__panel-title {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(238, 234, 224, 0.45);
+      margin-bottom: 10px;
+    }
+
+    .studio__panel-val {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 20px;
+      line-height: 1.3;
+      color: rgba(238, 234, 224, 0.7);
+    }
+
+    .studio__panel-val em { font-style: italic; }
+
+    /* ─────────────────────────────────────────────────────────
+       SECTION: PROCESS
+    ───────────────────────────────────────────────────────── */
+    .process {
+      padding: 120px 72px;
+      border-top: 1px solid rgba(238, 234, 224, 0.07);
+      background: #0d0c0b;
+    }
+
+    .process__header {
+      margin-bottom: 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .process__heading-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .process__heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(46px, 5vw, 68px);
+      line-height: 0.94;
+      color: #eeeae0;
+    }
+
+    .process__heading em { font-style: italic; }
+
+    .process__sub {
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: rgba(238, 234, 224, 0.36);
+      max-width: 360px;
+    }
+
+    .process__steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(238, 234, 224, 0.07);
+    }
+
+    .process__step {
+      background: #0d0c0b;
+      padding: 48px 40px;
+      position: relative;
+      transition: background 0.35s;
+    }
+
+    .process__step:hover {
+      background: #110f0d;
+    }
+
+    .process__step-num {
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      font-size: 64px;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: rgba(238, 234, 224, 0.04);
+      position: absolute;
+      top: 28px;
+      right: 28px;
+      user-select: none;
+    }
+
+    .process__step-tag {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: #b5ff45;
+      margin-bottom: 28px;
+      display: block;
+    }
+
+    .process__step-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 26px;
+      line-height: 1.1;
+      color: #eeeae0;
+      margin-bottom: 16px;
+    }
+
+    .process__step-title em { font-style: italic; }
+
+    .process__step-desc {
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: rgba(238, 234, 224, 0.35);
+    }
+
+    /* ─────────────────────────────────────────────────────────
+       SECTION: TESTIMONIALS
+    ───────────────────────────────────────────────────────── */
+    .testimonials {
+      padding: 120px 72px;
+      overflow: hidden;
+    }
+
+    .testimonials__header {
+      margin-bottom: 64px;
+    }
+
+    .testimonials__heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(44px, 4.8vw, 66px);
+      line-height: 0.96;
+      color: #eeeae0;
+      margin-top: 20px;
+    }
+
+    .testimonials__heading em { font-style: italic; }
+
+    .testimonials__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .testimonial {
+      background: #0f0e0c;
+      border: 1px solid rgba(238, 234, 224, 0.06);
+      padding: 44px 40px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .testimonial__quote-mark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 60px;
+      line-height: 0.7;
+      color: rgba(181, 255, 69, 0.18);
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    .testimonial__text {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: 20px;
+      line-height: 1.5;
+      color: rgba(238, 234, 224, 0.72);
+      flex: 1;
+      margin-bottom: 36px;
+    }
+
+    .testimonial__divider {
+      width: 24px;
+      height: 1px;
+      background: rgba(238, 234, 224, 0.15);
+      margin-bottom: 20px;
+    }
+
+    .testimonial__author {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .testimonial__author-name {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(238, 234, 224, 0.65);
+    }
+
+    .testimonial__author-role {
+      font-size: 10.5px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(238, 234, 224, 0.25);
+    }
+
+    /* ─────────────────────────────────────────────────────────
+       SECTION: CTA / CONTACT
+    ───────────────────────────────────────────────────────── */
+    .cta {
+      padding: 140px 72px;
+      border-top: 1px solid rgba(238, 234, 224, 0.07);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(181, 255, 69, 0.04) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .cta__label {
+      margin-bottom: 36px;
+    }
+
+    .cta__heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(52px, 6vw, 86px);
+      line-height: 0.95;
+      color: #eeeae0;
+      margin-bottom: 32px;
+      max-width: 700px;
+    }
+
+    .cta__heading em { font-style: italic; }
+
+    .cta__sub {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: rgba(238, 234, 224, 0.38);
+      max-width: 440px;
+      margin-bottom: 60px;
+    }
+
+    .cta__actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #b5ff45;
+      color: #0a0908;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 16px 32px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background: #c8ff72;
+      gap: 18px;
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: rgba(238, 234, 224, 0.5);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid rgba(238, 234, 224, 0.15);
+      padding: 16px 28px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-ghost:hover {
+      color: rgba(238, 234, 224, 0.85);
+      border-color: rgba(238, 234, 224, 0.35);
+    }
+
+    .cta__email {
+      margin-top: 48px;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      color: rgba(238, 234, 224, 0.2);
+    }
+
+    .cta__email a {
+      color: rgba(238, 234, 224, 0.4);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .cta__email a:hover {
+      color: rgba(238, 234, 224, 0.75);
+    }
+
+    /* ─────────────────────────────────────────────────────────
+       FOOTER
+    ───────────────────────────────────────────────────────── */
+    .footer {
+      border-top: 1px solid rgba(238, 234, 224, 0.07);
+      padding: 52px 72px;
+      display: grid;
+      grid-template-columns: 200px 1fr auto;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .footer__logo {
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(238, 234, 224, 0.55);
+      text-decoration: none;
+    }
+
+    .footer__logo::after {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #b5ff45;
+      margin-left: 4px;
+      vertical-align: super;
+    }
+
+    .footer__links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      justify-content: center;
+    }
+
+    .footer__link {
+      font-size: 10.5px;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(238, 234, 224, 0.22);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer__link:hover {
+      color: rgba(238, 234, 224, 0.55);
+    }
+
+    .footer__right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+    }
+
+    .footer__copy {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      color: rgba(238, 234, 224, 0.18);
+    }
+
+    .footer__location {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(238, 234, 224, 0.14);
+    }
+
+    /* ─────────────────────────────────────────────────────────
+       SCROLL ANIMATION
+    ───────────────────────────────────────────────────────── */
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    [data-reveal].visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAVIGATION ─── -->
+  <nav class="nav" id="nav">
+    <a href="#" class="nav__logo">Axario</a>
+    <div class="nav__center">
+      <a href="#work" class="nav__link">Work</a>
+      <a href="#studio" class="nav__link">Studio</a>
+      <a href="#services" class="nav__link">Services</a>
+      <a href="#process" class="nav__link">Process</a>
+    </div>
+    <a href="#contact" class="nav__cta">Start a project</a>
+  </nav>
+
+  <!-- ─── HERO ─── -->
+  <section class="hero" id="home">
+    <div class="hero__ghost">AX</div>
+
+    <div class="hero__body">
+
+      <div class="hero__left">
+        <div class="hero__eyebrow">
+          <div class="hero__eyebrow-dot"></div>
+          <span class="hero__eyebrow-text">Premium Web Design Studio · Est. 2020</span>
+        </div>
+
+        <h1 class="hero__headline">
+          <span class="hl-preface">We build</span>
+          <span class="hl-serif">websites</span>
+          <span class="hl-sans">that perform<span class="hl-accent">.</span></span>
+        </h1>
+
+        <p class="hero__descriptor">
+          Strategy-led design and development for ambitious brands
+          that expect more than aesthetics.
+        </p>
+
+        <a href="#contact" class="hero__cta">
+          Start a project
+          <span class="hero__cta-arrow">→</span>
+        </a>
+      </div>
+
+      <div class="hero__right">
+
+        <div class="project-card card-law">
+          <div class="card-industry-tag">Law Firm</div>
+          <div class="card-law__top"></div>
+          <div class="card-law__body">
+            <span class="card-law__firm">Hartwell &amp; Associates</span>
+            <div class="card-law__headline">Where <em>Precision</em><br>Meets Authority</div>
+          </div>
+          <div class="card-law__rule"></div>
+          <div class="card-law__cta">Request a Consultation</div>
+        </div>
+
+        <div class="project-card card-clinic">
+          <div class="card-industry-tag" style="color: rgba(42,37,32,0.3);">Aesthetic Clinic</div>
+          <div class="card-clinic__top"></div>
+          <div class="card-clinic__body">
+            <span class="card-clinic__tag">Aesthetic Medicine · Mayfair</span>
+            <span class="card-clinic__name">Lumière<br>Clinic</span>
+            <div class="card-clinic__cta">Book a Consultation</div>
+          </div>
+        </div>
+
+        <div class="project-card card-build">
+          <div class="card-industry-tag">Construction</div>
+          <div class="card-build__body">
+            <span class="card-build__eyebrow">Est. 2002 · Commercial &amp; Residential</span>
+            <span class="card-build__num">480+</span>
+            <span class="card-build__sub">Projects delivered</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="hero-bottom">
+      <div class="hero-bottom__availability">
+        <div class="hero-bottom__avail-dot"></div>
+        <span class="hero-bottom__avail-text">Currently accepting new projects for Q2 2025</span>
+      </div>
+      <div class="hero-bottom__services">
+        <span class="hero-bottom__service">Strategy</span>
+        <span class="hero-bottom__service">Design</span>
+        <span class="hero-bottom__service">Development</span>
+        <span class="hero-bottom__service">Conversion</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PROOF / NUMBERS ─── -->
+  <section class="proof" data-reveal>
+    <div class="proof__intro">
+      <div class="proof__intro-label section-label">In numbers</div>
+      <p class="proof__intro-text">
+        Four years of building sites that <em>actually move</em> the needle.
+      </p>
+    </div>
+    <div class="proof__stats">
+      <div class="proof__stat">
+        <span class="proof__stat-num">94<sup>%</sup></span>
+        <span class="proof__stat-label">Client retention<br>year over year</span>
+      </div>
+      <div class="proof__stat">
+        <span class="proof__stat-num">3.8<sup>×</sup></span>
+        <span class="proof__stat-label">Average conversion<br>rate improvement</span>
+      </div>
+      <div class="proof__stat">
+        <span class="proof__stat-num">48</span>
+        <span class="proof__stat-label">Projects delivered<br>to date</span>
+      </div>
+      <div class="proof__stat">
+        <span class="proof__stat-num">12</span>
+        <span class="proof__stat-label">Industries<br>served</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SELECTED WORK ─── -->
+  <section class="work" id="work">
+    <div class="work__header" data-reveal>
+      <div class="work__heading-group">
+        <div class="section-label">Selected work</div>
+        <h2 class="work__heading"><em>The work</em><br>speaks.</h2>
+      </div>
+      <a href="#" class="work__view-all">View all projects</a>
+    </div>
+
+    <div class="work__list" data-reveal>
+
+      <div class="work__item">
+        <span class="work__item-num">01</span>
+        <span class="work__item-title accent-gold">Hartwell <em>&amp;</em> Associates</span>
+        <span class="work__item-industry">Law Firm</span>
+        <span class="work__item-services">Design · Development</span>
+        <div class="work__item-arrow">→</div>
+      </div>
+
+      <div class="work__item">
+        <span class="work__item-num">02</span>
+        <span class="work__item-title accent-terracotta"><em>Lumière</em> Clinic</span>
+        <span class="work__item-industry">Aesthetic Medicine</span>
+        <span class="work__item-services">Strategy · Design · Dev</span>
+        <div class="work__item-arrow">→</div>
+      </div>
+
+      <div class="work__item">
+        <span class="work__item-num">03</span>
+        <span class="work__item-title accent-amber">Hallmark <em>Build</em></span>
+        <span class="work__item-industry">Construction</span>
+        <span class="work__item-services">Design · Development</span>
+        <div class="work__item-arrow">→</div>
+      </div>
+
+      <div class="work__item">
+        <span class="work__item-num">04</span>
+        <span class="work__item-title accent-blue">Meridian <em>Capital</em></span>
+        <span class="work__item-industry">Financial Advisory</span>
+        <span class="work__item-services">Full Service</span>
+        <div class="work__item-arrow">→</div>
+      </div>
+
+      <div class="work__item">
+        <span class="work__item-num">05</span>
+        <span class="work__item-title" style="color:rgba(238,234,224,0.62);">Volta <em>Dental</em></span>
+        <span class="work__item-industry">Dental Practice</span>
+        <span class="work__item-services">Strategy · Design</span>
+        <div class="work__item-arrow">→</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── SERVICES ─── -->
+  <section class="services" id="services">
+    <div class="services__header" data-reveal>
+      <h2 class="services__heading">What we<br><em>actually</em><br>do.</h2>
+      <div class="services__intro">
+        <div class="services__intro-label section-label">Services</div>
+        <p class="services__intro-p">
+          We don't offer templates or shortcuts. Every engagement is built from first principles — from strategy through to launch and conversion optimisation.
+        </p>
+      </div>
+    </div>
+
+    <div class="services__grid" data-reveal>
+
+      <div class="service-card">
+        <span class="service-card__num">01</span>
+        <h3 class="service-card__title">Strategy &amp;<br><em>Discovery</em></h3>
+        <p class="service-card__desc">We start by understanding your business, your customers, and what success actually looks like before a single pixel is designed.</p>
+        <ul class="service-card__list">
+          <li>Brand positioning audit</li>
+          <li>Competitor analysis</li>
+          <li>Conversion architecture</li>
+          <li>Audience mapping</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <span class="service-card__num">02</span>
+        <h3 class="service-card__title">Design &amp;<br><em>Art Direction</em></h3>
+        <p class="service-card__desc">Visual identity, layout systems, and interfaces that make an immediate impression — and hold it. Built to convert, not just admire.</p>
+        <ul class="service-card__list">
+          <li>Brand identity & visual language</li>
+          <li>UI/UX design</li>
+          <li>Motion & micro-interactions</li>
+          <li>Responsive design systems</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <span class="service-card__num">03</span>
+        <h3 class="service-card__title">Development &amp;<br><em>Launch</em></h3>
+        <p class="service-card__desc">Clean, performant code hand-built to your spec. No page builders. We deliver fast sites that rank, load, and hold up under real traffic.</p>
+        <ul class="service-card__list">
+          <li>Custom frontend development</li>
+          <li>CMS integration (Webflow, custom)</li>
+          <li>Core Web Vitals optimisation</li>
+          <li>SEO & analytics setup</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── STUDIO / ABOUT ─── -->
+  <section class="studio" id="studio">
+    <div class="studio__left" data-reveal>
+      <div class="studio__label section-label">The studio</div>
+      <h2 class="studio__heading">Small team.<br><em>High standards.</em></h2>
+      <div class="studio__body">
+        <p>Axario is a boutique studio — deliberately. We take on a limited number of projects each quarter so every client gets our full attention, not a handoff to a junior team.</p>
+        <p>We work with founders, owners, and operators who know that their website is the single highest-leverage marketing asset they have. Our job is to make it perform like one.</p>
+      </div>
+      <div class="studio__signature">
+        <span>Founded with intention,<br>built with care.</span>
+        <span class="studio__signature-name">— James Wren, Founder</span>
+      </div>
+    </div>
+
+    <div class="studio__right" data-reveal>
+      <div class="studio__panel">
+        <div class="studio__panel-title">Our approach</div>
+        <div class="studio__panel-val">Strategy first. Design second. Code last. Every decision traces back to a conversion goal.</div>
+      </div>
+      <div class="studio__panel">
+        <div class="studio__panel-title">Project size</div>
+        <div class="studio__panel-val"><em>£6k – £40k</em> per project. We work with businesses ready to invest in a proper website.</div>
+      </div>
+      <div class="studio__panel">
+        <div class="studio__panel-title">Timeline</div>
+        <div class="studio__panel-val">Most projects complete in <em>6–10 weeks</em> from kick-off to live. No open-ended engagements.</div>
+      </div>
+      <div class="studio__panel">
+        <div class="studio__panel-title">Industries</div>
+        <div class="studio__panel-val">Law, medicine, finance, construction, hospitality — anywhere trust &amp; credibility are everything.</div>
+      </div>
+      <div class="studio__panel">
+        <div class="studio__panel-title">Location</div>
+        <div class="studio__panel-val">Based in London. Working with clients <em>across the UK &amp; Europe.</em></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PROCESS ─── -->
+  <section class="process" id="process">
+    <div class="process__header" data-reveal>
+      <div class="process__heading-wrap">
+        <div class="section-label">How we work</div>
+        <h2 class="process__heading">A clear process.<br><em>No surprises.</em></h2>
+      </div>
+      <p class="process__sub">Four defined phases. Fixed timelines. You always know where we are and what's next.</p>
+    </div>
+
+    <div class="process__steps" data-reveal>
+
+      <div class="process__step">
+        <span class="process__step-num">01</span>
+        <span class="process__step-tag">Week 1–2</span>
+        <h3 class="process__step-title"><em>Discovery</em> &amp;<br>Strategy</h3>
+        <p class="process__step-desc">We learn your business inside out. Goals, customers, competitors, and conversion paths. We emerge with a blueprint.</p>
+      </div>
+
+      <div class="process__step">
+        <span class="process__step-num">02</span>
+        <span class="process__step-tag">Week 2–4</span>
+        <h3 class="process__step-title"><em>Design</em> &amp;<br>Refinement</h3>
+        <p class="process__step-desc">Full visual design across all key pages. Two rounds of feedback built in. You approve before we write a line of code.</p>
+      </div>
+
+      <div class="process__step">
+        <span class="process__step-num">03</span>
+        <span class="process__step-tag">Week 4–8</span>
+        <h3 class="process__step-title"><em>Development</em> &amp;<br>Testing</h3>
+        <p class="process__step-desc">Pixel-perfect build with performance baked in. Cross-device QA, Core Web Vitals, and pre-launch checklist.</p>
+      </div>
+
+      <div class="process__step">
+        <span class="process__step-num">04</span>
+        <span class="process__step-tag">Week 8–10</span>
+        <h3 class="process__step-title"><em>Launch</em> &amp;<br>Handover</h3>
+        <p class="process__step-desc">Staged go-live, analytics verified, and full training on your CMS. We stay on call for 30 days post-launch.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── TESTIMONIALS ─── -->
+  <section class="testimonials">
+    <div class="testimonials__header" data-reveal>
+      <div class="section-label">What clients say</div>
+      <h2 class="testimonials__heading">Results worth<br><em>talking about.</em></h2>
+    </div>
+
+    <div class="testimonials__grid" data-reveal>
+
+      <div class="testimonial">
+        <span class="testimonial__quote-mark">"</span>
+        <p class="testimonial__text">Axario completely reframed how we think about our website. Within three months of launching we saw a 4× increase in qualified enquiries.</p>
+        <div class="testimonial__divider"></div>
+        <div class="testimonial__author">
+          <span class="testimonial__author-name">Richard Hartwell</span>
+          <span class="testimonial__author-role">Partner, Hartwell &amp; Associates</span>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <span class="testimonial__quote-mark">"</span>
+        <p class="testimonial__text">The process was the smoothest design project I've been involved in. They understood the tone we needed immediately — and delivered it without compromise.</p>
+        <div class="testimonial__divider"></div>
+        <div class="testimonial__author">
+          <span class="testimonial__author-name">Dr. Sophie Laurent</span>
+          <span class="testimonial__author-role">Director, Lumière Clinic</span>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <span class="testimonial__quote-mark">"</span>
+        <p class="testimonial__text">We've worked with agencies twice the size that couldn't match the quality or attention to detail. Our conversion rate from the website is up 280%.</p>
+        <div class="testimonial__divider"></div>
+        <div class="testimonial__author">
+          <span class="testimonial__author-name">Tom Hallmark</span>
+          <span class="testimonial__author-role">CEO, Hallmark Build</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── CTA ─── -->
+  <section class="cta" id="contact">
+    <div class="cta__label section-label" data-reveal>Let's build something</div>
+    <h2 class="cta__heading" data-reveal>
+      Ready to make your<br>website <em>earn its keep?</em>
+    </h2>
+    <p class="cta__sub" data-reveal>
+      We take on 4–5 new projects per quarter. Tell us about yours and we'll let you know if we're a fit.
+    </p>
+    <div class="cta__actions" data-reveal>
+      <a href="mailto:hello@axario.co" class="btn-primary">Start a project →</a>
+      <a href="#work" class="btn-ghost">See our work</a>
+    </div>
+    <p class="cta__email" data-reveal>
+      Or email us directly at <a href="mailto:hello@axario.co">hello@axario.co</a>
+    </p>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="footer">
+    <a href="#home" class="footer__logo">Axario</a>
+    <nav class="footer__links">
+      <a href="#work" class="footer__link">Work</a>
+      <a href="#studio" class="footer__link">Studio</a>
+      <a href="#services" class="footer__link">Services</a>
+      <a href="#process" class="footer__link">Process</a>
+      <a href="#contact" class="footer__link">Contact</a>
+    </nav>
+    <div class="footer__right">
+      <span class="footer__copy">© 2025 Axario Studio Ltd.</span>
+      <span class="footer__location">London, United Kingdom</span>
+    </div>
+  </footer>
+
+  <script>
+    // Sticky nav
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('[data-reveal]');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          // Stagger children if they exist
+          const delay = entry.target.dataset.delay || 0;
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, delay);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    reveals.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
