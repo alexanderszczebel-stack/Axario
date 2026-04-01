@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Strony internetowe dla firm | Axario</title>
-  <meta name="description" content="Tworzymy nowoczesne strony internetowe dla firm usługowych: klinik, agencji nieruchomości i firm budowlanych. Premium design, szybka realizacja i bezpłatna wycena." />
+  <title>Strony internetowe dla firm, SEO i chatbot AI | Axario</title>
+  <meta name="description" content="Axario projektuje strony internetowe dla firm, wdraża SEO i chatboty AI. Premium web design dla klinik, nieruchomości i firm usługowych w całej Polsce." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://axario.pl/" />
   <meta name="theme-color" content="#060e1c" />
@@ -322,6 +322,28 @@
       border-color: var(--border-blue);
       transform: translateY(-4px);
     }
+
+    .demo-card-new::after {
+      content: "Otwórz pełne demo →";
+      position: absolute;
+      right: 16px;
+      bottom: 16px;
+      background: rgba(6,14,28,0.78);
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      border: 1px solid rgba(255,255,255,0.12);
+      z-index: 3;
+      pointer-events: none;
+    }
+    .demo-card-new:focus-visible {
+      outline: 2px solid rgba(147,197,253,0.9);
+      outline-offset: 3px;
+    }
+
     .demo-iframe-wrap {
       position: relative;
       overflow: hidden;
@@ -695,7 +717,13 @@
     }
     @media (max-width: 760px) {
       .container { padding: 0 20px; }
-      .hero-left h1 { font-size: 52px; }
+      .hero-left h1 { font-size: 44px; line-height: 1.08; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .hero-actions .btn { width: 100%; justify-content: center; }
+      .chat-launcher { padding: 12px 14px; }
+      .chat-launcher-label { display: none; }
+      .demo-card-new::after { left: 12px; right: auto; bottom: 12px; font-size: 11px; padding: 7px 10px; }
+      .demo-info { flex-direction: column; align-items: flex-start; }
       .section-h2, .demo-header h2, .chatbot-left h2, .faq-left h2, .cta-left h2 { font-size: 36px; }
       nav { padding: 14px 20px; }
       .nav-links { display: none; }
@@ -709,6 +737,19 @@
       .chat-launcher-label { display: none; }
     }
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "Ile trwa realizacja strony internetowej?", "acceptedAnswer": {"@type": "Answer", "text": "Landing page zwykle realizujemy w 7–14 dni, a pełną stronę firmową w 2–4 tygodnie, zależnie od zakresu projektu."}},
+      {"@type": "Question", "name": "Czy pomagacie z SEO?", "acceptedAnswer": {"@type": "Answer", "text": "Tak. Tworzymy techniczną bazę SEO, przygotowujemy strukturę treści i możemy prowadzić dalszą optymalizację widoczności w Google."}},
+      {"@type": "Question", "name": "Czy chatbot AI można dodać do istniejącej strony?", "acceptedAnswer": {"@type": "Answer", "text": "Tak. Chatbot AI możemy wdrożyć zarówno na nowej stronie, jak i na już działającej witrynie firmy."}}
+    ]
+  }
+  </script>
+
 </head>
 <body>
 
@@ -716,12 +757,12 @@
 <nav id="nav">
   <a class="nav-logo" href="#">Axario</a>
   <ul class="nav-links">
-    <li><a href="axario.html#uslugi">Usługi</a></li>
-    <li><a href="axario.html#cennik">Cennik</a></li>
+    <li><a href="strony-internetowe.html">Usługi</a></li>
+    <li><a href="cennik.html">Cennik</a></li>
     <li><a href="blog.html">Blog</a></li>
-    <li><a href="axario.html#faq">FAQ</a></li>
+    <li><a href="#faq">FAQ</a></li>
   </ul>
-  <a href="#kontakt" class="nav-cta">Darmowa wycena</a>
+  <a href="kontakt.html" class="nav-cta">Darmowa wycena</a>
 </nav>
 
 <!-- ══ HERO ══ -->
@@ -732,7 +773,7 @@
       <h1>Wygląd,<br>który budzi<br><em>zaufanie.</em></h1>
       <p>Projektujemy strony dla firm usługowych, które budują zaufanie, ułatwiają kontakt z klientami i pomagają lepiej wyglądać w sieci.</p>
       <div class="hero-actions">
-        <a href="#kontakt" class="btn btn-primary">Darmowa wycena</a>
+        <a href="kontakt.html" class="btn btn-primary">Darmowa wycena</a>
         <a href="#demo" class="btn btn-secondary">Zobacz przykłady</a>
       </div>
       <div class="hero-trust">
@@ -785,7 +826,7 @@
 
 <!-- ══ DEMO BRANŻOWE ══ -->
 <div class="container">
-  <section id="demo">
+  <section id="demo"><div id="realizacje"></div>
     <div class="demo-header">
       <div>
         <div class="section-label">Demo branżowe</div>
@@ -1138,6 +1179,39 @@
   </section>
 </div>
 
+
+<!-- ══ SEO / CONTENT BLOCK ══ -->
+<div class="container">
+  <section class="section" id="seo-content">
+    <div class="section-heading">
+      <div class="section-kicker">Widoczność w Google</div>
+      <h2>Projektowanie stron www, które łatwiej pozycjonować</h2>
+      <p>Axario łączy premium design z praktycznym SEO. Dzięki temu strona nie tylko wygląda dobrze, ale też daje lepszą bazę pod frazy takie jak strony internetowe dla firm, projektowanie stron www, chatbot AI dla firm i SEO dla lokalnych usług.</p>
+    </div>
+    <div class="cards-grid three">
+      <article class="glass feature-card">
+        <div class="feature-icon">SEO</div>
+        <h3>Struktura pod wyszukiwarkę</h3>
+        <p>Dbamy o nagłówki, meta dane, linkowanie wewnętrzne, szybkość i logiczny układ treści, żeby Google łatwiej rozumiał stronę.</p>
+        <a href="seo.html" class="link-inline">Zobacz usługę SEO →</a>
+      </article>
+      <article class="glass feature-card">
+        <div class="feature-icon">WWW</div>
+        <h3>Podstrony usługowe</h3>
+        <p>Tworzymy osobne sekcje i strony pod konkretne intencje: strony internetowe, landing page, SEO i chatbot AI.</p>
+        <a href="strony-internetowe.html" class="link-inline">Strony internetowe →</a>
+      </article>
+      <article class="glass feature-card">
+        <div class="feature-icon">PL</div>
+        <h3>Frazy lokalne</h3>
+        <p>Możemy przygotować landingi pod miasta i regiony, np. projektowanie stron www Warszawa, Kraków czy cała Polska.</p>
+        <a href="projektowanie-stron-www-warszawa.html" class="link-inline">Przykład strony lokalnej →</a>
+      </article>
+    </div>
+  </section>
+</div>
+
+
 <!-- FOOTER -->
 <div class="container">
   <footer class="footer-rich">
@@ -1153,10 +1227,10 @@
       </div>
       <div class="footer-nav-col">
         <div class="footer-nav-label">Usługi</div>
-        <a href="#uslugi">Strona firmowa</a>
-        <a href="#uslugi">Landing page</a>
-        <a href="#chatbot">Chatbot AI</a>
-        <a href="#uslugi">Projekt indywidualny</a>
+        <a href="strony-internetowe.html">Strona firmowa</a>
+        <a href="landing-page.html">Landing page</a>
+        <a href="ai-chatbot.html">Chatbot AI</a>
+        <a href="seo.html">SEO i rozwój</a>
       </div>
       <div class="footer-nav-col">
         <div class="footer-nav-label">Branże</div>
@@ -1176,7 +1250,7 @@
         <div class="footer-nav-label">Kontakt</div>
         <a href="mailto:kontakt@axario.pl">kontakt@axario.pl</a>
         <a href="tel:+48500000000">+48 500 000 000</a>
-        <a href="#kontakt">Darmowa wycena</a>
+        <a href="kontakt.html">Darmowa wycena</a>
       </div>
     </div>
     <div class="footer-seo-text">
@@ -1185,10 +1259,10 @@
     <div class="footer-bottom">
       <div class="footer-copy">© 2025 Axario Web Studio. Wszelkie prawa zastrzeżone.</div>
       <div class="footer-bottom-links">
-        <a href="#">Polityka prywatności</a>
-        <a href="#">Regulamin</a>
+        <a href="polityka-prywatnosci.html">Polityka prywatności</a>
+        <a href="polityka-prywatnosci.html">Polityka prywatności</a>
         <a href="blog.html">Blog</a>
-        <a href="#kontakt">Kontakt</a>
+        <a href="kontakt.html">Kontakt</a>
       </div>
     </div>
   </footer>

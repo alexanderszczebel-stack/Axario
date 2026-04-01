@@ -1856,3 +1856,92 @@ textarea::placeholder {
   }
 }
 
+
+
+.logo-text {
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.article-card {
+  padding: 20px 18px 18px;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  background: rgba(15, 23, 42, 0.96);
+}
+
+.article-card h3 {
+  margin: 0 0 8px;
+  font-size: 20px;
+}
+
+.article-card p {
+  margin: 0 0 12px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.inline-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.inline-links a {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  background: rgba(15, 23, 42, 0.96);
+  font-size: 13px;
+}
+
+.list-plain {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+.list-plain li + li {
+  margin-top: 8px;
+}
+
+@media (max-width: 760px) {
+  .section-heading p,
+  .content-block p,
+  .stacked-item span,
+  .feature-card p,
+  .article-card p {
+    font-size: 15px;
+  }
+
+  .btn,
+  .suggestion-chip,
+  .chat-popup-close,
+  .faq-item,
+  input,
+  textarea,
+  select {
+    min-height: 44px;
+  }
+
+  .chat-popup-inner {
+    padding: 14px;
+    border-radius: 24px;
+  }
+
+  .page-hero h1 {
+    font-size: 30px;
+    line-height: 1.12;
+  }
+
+  .page-hero .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .page-hero .hero-actions .btn {
+    width: 100%;
+  }
+}

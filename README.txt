@@ -15,3 +15,16 @@ Ważne dla Claude:
 - chatbot ma zostać wizualnie przerobiony pod nowy premium dark/editorial styl Axario
 - zachować floating button w prawym dolnym rogu i popup czatu
 - korzystać z backendu /api/chat
+
+
+Dodatkowo dodane w tej wersji:
+- strony-internetowe.html
+- seo.html
+- landing-page.html
+- cennik.html
+- kontakt.html
+- blog.html + 3 artykuły
+- projektowanie-stron-www-warszawa.html
+- polityka-prywatnosci.html
+- rozszerzona sitemap.xml
+- poprawki mobile UX
