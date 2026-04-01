@@ -1575,6 +1575,72 @@
     setupPopupChat();
     setupDemoCards();
   });
+
+  // ─── Formularz kontaktowy ────────────────────────────────
+  // Lokalnie:  http://localhost:3000/api/contact
+  // Na Render: https://TWOJ-BACKEND.onrender.com/api/contact
+  const API_URL = 'http://localhost:3000/api/contact';
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const btn  = form.querySelector('.form-submit');
+    if (!btn) return;
+
+    const email  = form.querySelector('#email')?.value?.trim()  || '';
+    const typ    = form.querySelector('#typ')?.value?.trim()    || '';
+    const termin = form.querySelector('#termin')?.value?.trim() || '';
+
+    // Walidacja kliencka — szybki feedback
+    if (!email || !typ || !termin) {
+      showFormError(btn, 'Wypełnij wszystkie pola.');
+      return;
+    }
+
+    // Stan ładowania
+    btn.disabled = true;
+    const originalText = btn.textContent;
+    btn.textContent = 'Wysyłanie…';
+
+    try {
+      const res = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, typ, termin }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok && data.success) {
+        btn.textContent = 'Wysłano! Odezwiemy się wkrótce ✓';
+        btn.style.background = 'linear-gradient(135deg,#16a34a,#4ade80)';
+        btn.style.color = '#060e1c';
+        form.reset();
+      } else {
+        const msg = data.errors?.[0]?.message || data.message || 'Sprawdź dane i spróbuj ponownie.';
+        showFormError(btn, msg, originalText);
+      }
+    } catch (err) {
+      showFormError(btn, 'Problem z połączeniem. Napisz na kontakt@axario.pl', originalText);
+      console.error('[contact form]', err);
+    }
+  }
+
+  function showFormError(btn, message, originalText) {
+    btn.disabled = false;
+    btn.textContent = originalText || 'Wyślij zapytanie →';
+
+    const prev = btn.parentElement.querySelector('.form-error-msg');
+    if (prev) prev.remove();
+
+    const errEl = document.createElement('p');
+    errEl.className = 'form-error-msg';
+    errEl.textContent = message;
+    errEl.style.cssText = 'color:#f87171;font-size:13px;margin-top:8px;text-align:center;';
+    btn.after(errEl);
+    setTimeout(() => errEl.remove(), 5000);
+  }
 </script>
 </body>
 </html>
