@@ -1384,13 +1384,74 @@
     });
   }
 
-  function handleSubmit(e) {
+  // ─── Adres API ─────────────────────────────────────────────
+  // Lokalnie:    http://localhost:3000/api/contact
+  // Na Render:   https://axario-backend.onrender.com/api/contact
+  const API_URL = 'http://localhost:3000/api/contact';
+
+  async function handleSubmit(e) {
     e.preventDefault();
-    const btn = e.target.querySelector('.form-submit');
+
+    const form = e.target;
+    const btn  = form.querySelector('.form-submit');
     if (!btn) return;
-    btn.textContent = 'Wysłano! Odezwiemy się wkrótce ✓';
-    btn.style.background = 'linear-gradient(135deg,#16a34a,#4ade80)';
-    btn.style.color = '#fff';
+
+    const email  = form.querySelector('#email')?.value?.trim()  || '';
+    const typ    = form.querySelector('#typ')?.value?.trim()    || '';
+    const termin = form.querySelector('#termin')?.value?.trim() || '';
+
+    // Walidacja po stronie klienta (szybki feedback)
+    if (!email || !typ || !termin) {
+      showFormError(btn, 'Wypełnij wszystkie pola.');
+      return;
+    }
+
+    // Stan ładowania
+    btn.disabled = true;
+    btn.textContent = 'Wysyłanie…';
+
+    try {
+      const res = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, typ, termin }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok && data.success) {
+        // Sukces
+        btn.textContent = 'Wysłano! Odezwiemy się wkrótce ✓';
+        btn.style.background = 'linear-gradient(135deg,#16a34a,#4ade80)';
+        btn.style.color = '#fff';
+        form.reset();
+      } else {
+        // Błąd z API (walidacja)
+        const msg = data.errors?.[0]?.message || data.message || 'Sprawdź dane i spróbuj ponownie.';
+        showFormError(btn, msg);
+      }
+    } catch (err) {
+      // Błąd sieci
+      showFormError(btn, 'Problem z połączeniem. Spróbuj ponownie lub napisz na kontakt@axario.pl');
+      console.error('[contact form]', err);
+    }
+  }
+
+  function showFormError(btn, message) {
+    btn.disabled = false;
+    btn.textContent = 'Wyślij zapytanie →';
+
+    // Usuń poprzedni komunikat błędu jeśli istnieje
+    const prev = btn.parentElement.querySelector('.form-error-msg');
+    if (prev) prev.remove();
+
+    const errEl = document.createElement('p');
+    errEl.className = 'form-error-msg';
+    errEl.textContent = message;
+    errEl.style.cssText = 'color:#f87171;font-size:13px;margin-top:8px;text-align:center;';
+    btn.after(errEl);
+
+    setTimeout(() => errEl.remove(), 5000);
   }
 
   setupPopupChat();
