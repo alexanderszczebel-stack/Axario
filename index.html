@@ -3,18 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Axario — Projektowanie Stron WWW dla Firm | Premium Web Studio</title>
-  <meta name="description" content="Axario to premium studio web design. Tworzymy profesjonalne strony internetowe dla firm usługowych — klinik, agencji nieruchomości, firm budowlanych. Nowoczesny design, szybka realizacja, jasna wycena od 799 zł." />
-  <meta name="keywords" content="projektowanie stron www, strony internetowe dla firm, web design Polska, tworzenie stron firmowych, strona www dla kliniki, strona budowlana, agencja web design" />
+  <title>Strony internetowe dla firm | Axario</title>
+  <meta name="description" content="Tworzymy nowoczesne strony internetowe dla firm usługowych: klinik, agencji nieruchomości i firm budowlanych. Premium design, szybka realizacja i bezpłatna wycena." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://axario.pl/" />
+  <meta name="theme-color" content="#060e1c" />
+  <meta name="author" content="Axario" />
+  <meta name="format-detection" content="telephone=no" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://axario.pl/" />
   <meta property="og:title" content="Axario — Projektowanie Stron WWW dla Firm" />
   <meta property="og:description" content="Profesjonalne strony internetowe dla firm usługowych. Nowoczesny design, szybka realizacja, jasne ceny. Darmowa wycena." />
-  <meta property="og:image" content="https://axario.pl/og-image.jpg" />
+  <meta property="og:image" content="https://axario.pl/og-image.svg" />
   <meta property="og:locale" content="pl_PL" />
   <meta property="og:site_name" content="Axario Web Studio" />
 
@@ -22,7 +24,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Axario — Projektowanie Stron WWW dla Firm" />
   <meta name="twitter:description" content="Premium studio web design. Strony dla firm usługowych od 799 zł." />
-  <meta name="twitter:image" content="https://axario.pl/og-image.jpg" />
+  <meta name="twitter:image" content="https://axario.pl/og-image.svg" />
 
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
@@ -33,52 +35,65 @@
         "@type": "WebSite",
         "@id": "https://axario.pl/#website",
         "url": "https://axario.pl/",
-        "name": "Axario Web Studio",
-        "description": "Premium studio projektowania stron internetowych dla firm usługowych",
+        "name": "Axario",
         "inLanguage": "pl-PL",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://axario.pl/blog?s={search_term_string}",
-          "query-input": "required name=search_term_string"
-        }
+        "description": "Strony internetowe dla firm usługowych"
       },
       {
-        "@type": "LocalBusiness",
-        "@id": "https://axario.pl/#business",
-        "name": "Axario Web Studio",
-        "description": "Projektujemy profesjonalne strony internetowe dla firm usługowych. Specjalizujemy się w web design dla klinik, agencji nieruchomości, firm budowlanych i innych branż.",
+        "@type": "Organization",
+        "@id": "https://axario.pl/#organization",
+        "name": "Axario",
         "url": "https://axario.pl/",
-        "email": "kontakt@axario.pl",
-        "telephone": "+48500000000",
-        "priceRange": "799 zł – 5000 zł+",
-        "areaServed": {
-          "@type": "Country",
-          "name": "Polska"
-        },
-        "serviceType": ["Projektowanie stron www", "Web design", "Tworzenie stron internetowych", "Chatbot AI"],
-        "sameAs": [
-          "https://www.facebook.com/axario",
-          "https://www.instagram.com/axario",
-          "https://www.linkedin.com/company/axario"
-        ]
+        "logo": "https://axario.pl/og-image.svg"
       },
       {
         "@type": "Service",
+        "@id": "https://axario.pl/#service-strony",
         "serviceType": "Projektowanie stron internetowych",
-        "provider": {"@id": "https://axario.pl/#business"},
+        "provider": {"@id": "https://axario.pl/#organization"},
+        "areaServed": {"@type": "Country", "name": "Polska"},
         "offers": [
           {
             "@type": "Offer",
-            "name": "Landing Page",
+            "name": "Landing page",
             "price": "799",
-            "priceCurrency": "PLN",
-            "priceSpecification": {"@type": "PriceSpecification", "minPrice": "799", "maxPrice": "1800", "priceCurrency": "PLN"}
+            "priceCurrency": "PLN"
           },
           {
             "@type": "Offer",
-            "name": "Strona Firmowa",
+            "name": "Strona firmowa",
             "price": "2499",
             "priceCurrency": "PLN"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://axario.pl/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Ile trwa realizacja projektu?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Landing page realizujemy zazwyczaj w ciągu 7–14 dni. Pełna strona firmowa to 2–4 tygodnie, w zależności od zakresu."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Czego potrzebujecie na start?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Wystarczy krótka rozmowa lub wypełniony formularz kontaktowy. Na bazie tego przygotowujemy wycenę i plan działania."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Czy chatbot AI można dodać do istniejącej strony?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Tak. Chatbot to osobny moduł, który integrujemy z każdą istniejącą stroną."
+            }
           }
         ]
       }
@@ -300,6 +315,8 @@
       border: 1px solid var(--border);
       background: var(--bg-card);
       transition: border-color 0.3s, transform 0.3s;
+      cursor: pointer;
+      position: relative;
     }
     .demo-card-new:hover {
       border-color: var(--border-blue);
@@ -331,6 +348,26 @@
     .demo-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 60px; gap: 32px; }
     .demo-header h2 { font-family: Inter, sans-serif; font-size: 48px; font-weight: 800; letter-spacing: -0.04em; line-height: 1.05; }
     .demo-header-right p { font-size: 15px; color: var(--text-secondary); max-width: 340px; line-height: 1.7; }
+
+    .demo-open-pill {
+      position: absolute;
+      right: 16px;
+      bottom: 16px;
+      z-index: 3;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: var(--radius-pill);
+      background: rgba(6,14,28,0.82);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--text-primary);
+      font-size: 12px;
+      font-weight: 600;
+      backdrop-filter: blur(10px);
+      pointer-events: none;
+    }
+
     .demo-info { padding: 22px 26px; display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; }
     .demo-info h3 { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 4px; }
     .demo-info p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
@@ -509,6 +546,104 @@
     .footer-logo span { color: var(--blue-400); }
     .footer-copy { font-size: 13px; color: var(--text-muted); }
 
+    
+    .chat-floating {
+      position: fixed;
+      right: 28px;
+      bottom: 28px;
+      z-index: 200;
+    }
+    .chat-launcher {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(29,78,216,0.95), rgba(59,130,246,0.95));
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: 0 12px 36px rgba(59,130,246,0.34);
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .chat-launcher-dot {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.14);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .chat-launcher-label { font-size: 13px; }
+    .chat-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(6,14,28,0.72);
+      backdrop-filter: blur(6px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.22s ease;
+      z-index: 190;
+    }
+    .chat-overlay.is-open { opacity: 1; pointer-events: auto; }
+    .chat-popup {
+      position: fixed;
+      right: 28px;
+      bottom: 98px;
+      width: min(380px, calc(100vw - 24px));
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px);
+      transition: opacity 0.22s ease, transform 0.22s ease;
+      z-index: 210;
+    }
+    .chat-popup.is-open { opacity: 1; pointer-events: auto; transform: translateY(0); }
+    .chat-popup-inner {
+      padding: 18px;
+      border-radius: 30px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.035));
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: var(--shadow-card);
+      backdrop-filter: blur(18px);
+    }
+    .chat-popup-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+    .chat-popup-header-title strong {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+    .chat-popup-header-title span {
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+    .chat-popup-close {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.06);
+      color: var(--text-primary);
+      cursor: pointer;
+      font-size: 20px;
+      line-height: 1;
+    }
+    .chat-popup-footer {
+      margin: 10px 0 0;
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
     /* FOOTER RICH */
     .footer-rich { padding: 72px 0 32px; border-top: 1px solid var(--border); }
     .footer-top { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
@@ -546,28 +681,6 @@
       .footer-bottom { flex-direction: column; align-items: flex-start; }
       .footer-bottom-links { flex-wrap: wrap; gap: 16px; }
     }
-    .float-bot {
-      position: fixed; bottom: 28px; right: 28px; z-index: 200;
-      width: 58px; height: 58px; border-radius: 50%;
-      background: linear-gradient(135deg,#1d4ed8,#3b82f6); border: none;
-      cursor: pointer; display: flex; align-items: center; justify-content: center;
-      font-size: 24px; transition: transform 0.2s;
-      box-shadow: 0 8px 32px rgba(59,130,246,0.4), 0 0 0 0 rgba(59,130,246,0.3);
-      animation: pulse 3s ease-in-out infinite;
-    }
-    .float-bot:hover { transform: scale(1.08); }
-    @keyframes pulse {
-      0%,100% { box-shadow: 0 8px 32px rgba(59,130,246,0.4), 0 0 0 0 rgba(59,130,246,0.3); }
-      50% { box-shadow: 0 8px 32px rgba(59,130,246,0.4), 0 0 0 14px rgba(59,130,246,0); }
-    }
-    .float-tooltip {
-      position: absolute; right: 68px; white-space: nowrap;
-      background: rgba(255,255,255,0.08); border: 1px solid var(--border);
-      backdrop-filter: blur(12px); padding: 8px 14px; border-radius: var(--radius-pill);
-      font-size: 13px; font-weight: 500; color: var(--text-primary);
-      opacity: 0; transform: translateX(6px); transition: all 0.2s; pointer-events: none;
-    }
-    .float-bot:hover .float-tooltip { opacity: 1; transform: translateX(0); }
 
     /* RESPONSIVE */
     @media (max-width: 1100px) {
@@ -591,6 +704,9 @@
       .proces-track::before { display: none; }
       .form-row { grid-template-columns: 1fr; }
       .demo-header { flex-direction: column; align-items: flex-start; }
+      .chat-floating { right: 16px; bottom: 16px; }
+      .chat-popup { right: 12px; left: 12px; bottom: 82px; width: auto; }
+      .chat-launcher-label { display: none; }
     }
   </style>
 </head>
@@ -598,7 +714,7 @@
 
 <!-- NAV -->
 <nav id="nav">
-  <a class="nav-logo" href="#">Ax<span>.</span>ario</a>
+  <a class="nav-logo" href="#">Axario</a>
   <ul class="nav-links">
     <li><a href="axario.html#uslugi">Usługi</a></li>
     <li><a href="axario.html#cennik">Cennik</a></li>
@@ -683,9 +799,12 @@
     <div class="demo-grid-new">
 
       <!-- NIERUCHOMOŚCI — nowe demo wzorowane na stylu clinic/construction -->
-      <div class="demo-card-new">
+      <div class="demo-card-new" data-demo-url="demo-nieruchomosci.html" tabindex="0" role="link">
         <div class="demo-iframe-wrap" style="height:396px;">
           <iframe scrolling="no" srcdoc="<!DOCTYPE html><html lang='pl'><head><meta charset='UTF-8'><link href='https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap' rel='stylesheet'><style>*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}html,body{height:100%;font-family:&apos;DM Sans&apos;,sans-serif}.hero{display:flex;width:100%;height:100vh;min-height:680px;overflow:hidden}.hero__panel{flex:0 0 44%;background:#f5f4f0;display:flex;flex-direction:column;position:relative;overflow:hidden}.hero__panel::before{content:&apos;&apos;;position:absolute;inset:0;background:radial-gradient(ellipse at bottom left,rgba(74,93,78,0.05) 0%,transparent 70%);pointer-events:none}.hero__photo-side{flex:0 0 56%;position:relative;overflow:hidden}.hero__photo{position:absolute;inset:0;background-image:url(&apos;https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1100&q=90&fit=crop&crop=center&apos;);background-size:cover;background-position:center center}.hero__photo-edge{position:absolute;top:0;left:0;bottom:0;width:80px;background:linear-gradient(to right,rgba(245,244,240,0.12),transparent);pointer-events:none;z-index:2}.hero__photo-tag{position:absolute;bottom:48px;right:40px;z-index:5;text-align:right}.hero__photo-tag-label{font-family:&apos;DM Sans&apos;,sans-serif;font-size:9.5px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.5);display:block;margin-bottom:5px}.hero__photo-tag-name{font-family:&apos;Cormorant Garamond&apos;,serif;font-style:italic;font-weight:300;font-size:16px;color:rgba(255,255,255,0.85)}.panel-nav{position:relative;z-index:10;display:flex;align-items:center;justify-content:space-between;padding:34px 50px}.panel-nav__logo{font-family:&apos;Cormorant Garamond&apos;,serif;font-weight:400;font-size:19px;letter-spacing:0.18em;color:#1e1e1a}.panel-nav__logo span{font-style:italic;font-weight:300}.panel-nav__menu{display:flex;gap:26px;list-style:none}.panel-nav__menu a{font-size:11px;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;color:#9a9589;text-decoration:none}.panel-body{position:relative;z-index:10;flex:1;display:flex;flex-direction:column;justify-content:center;padding:16px 50px}.panel-tag{display:flex;align-items:center;gap:10px;margin-bottom:28px}.panel-tag__line{width:26px;height:1px;background:#4a5d4e}.panel-tag__text{font-size:10px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:#4a5d4e}.panel-headline{font-family:&apos;Cormorant Garamond&apos;,serif;font-weight:300;font-style:italic;font-size:58px;line-height:1.1;color:#1e1e1a;letter-spacing:-0.01em;margin-bottom:24px;max-width:360px}.panel-headline strong{font-weight:400;font-style:normal;color:#0e130f}.panel-sub{font-size:14px;font-weight:300;line-height:1.85;color:#7a7570;max-width:310px;margin-bottom:40px}.panel-credentials{display:flex;align-items:flex-start;gap:22px;margin-bottom:40px;padding-bottom:40px;border-bottom:1px solid rgba(30,30,26,0.1)}.panel-credential{display:flex;align-items:flex-start;gap:10px}.panel-credential__icon{width:32px;height:32px;border:1px solid rgba(74,93,78,0.35);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}.panel-credential__icon svg{width:14px;height:14px;stroke:#4a5d4e;fill:none;stroke-width:1.5}.panel-credential__text{font-size:11px;font-weight:400;line-height:1.5;color:#7a7570}.panel-credential__text strong{display:block;color:#1e1e1a;font-weight:500;font-size:12px;margin-bottom:2px}.panel-cta-group{display:flex;flex-direction:column;gap:14px;align-items:flex-start}.panel-cta-primary{display:inline-flex;align-items:center;gap:12px;font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:#1e1e1a;text-decoration:none;border:1px solid #4a5d4e;padding:15px 26px;transition:all 0.35s ease}.panel-cta-primary:hover{background:#4a5d4e;color:#f5f4f0}.panel-cta-secondary{font-size:12px;font-weight:400;color:#9a9589;text-decoration:none;letter-spacing:0.06em;display:flex;align-items:center;gap:8px}.panel-footer{position:relative;z-index:10;padding:20px 50px;border-top:1px solid rgba(30,30,26,0.1);display:flex;align-items:center;justify-content:space-between}.panel-footer__agent{font-family:&apos;Cormorant Garamond&apos;,serif;font-size:14px;color:#5a5550}.panel-footer__agent strong{font-weight:500;color:#1e1e1a;font-size:15px}.panel-footer__stat{text-align:right}.panel-footer__num{font-family:&apos;Cormorant Garamond&apos;,serif;font-weight:400;font-size:22px;color:#4a5d4e;display:block}.panel-footer__label{font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:#9a9589}</style></head><body><section class='hero'><div class='hero__panel'><nav class='panel-nav'><div class='panel-nav__logo'><span>Prestige</span> Nieruchomości</div><ul class='panel-nav__menu'><li><a href='#'>Oferta</a></li><li><a href='#'>Realizacje</a></li><li><a href='#'>Kontakt</a></li></ul></nav><div class='panel-body'><div class='panel-tag'><div class='panel-tag__line'></div><span class='panel-tag__text'>Nieruchomości Premium · Warszawa</span></div><h1 class='panel-headline'>Znajdź dom,<br><strong>który czułeś</strong><br>od zawsze.</h1><p class='panel-sub'>Ekskluzywna obsługa kupna i sprzedaży nieruchomości. Precyzja, dyskrecja i pełne zaangażowanie na każdym etapie.</p><div class='panel-credentials'><div class='panel-credential'><div class='panel-credential__icon'><svg viewBox='0 0 24 24'><path d='M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.3L12 17l-6.2 4.2 2.4-7.3L2 9.4h7.6z'/></svg></div><div class='panel-credential__text'><strong>Licencja Pośrednika</strong>Certyfikowana agentka PFRN</div></div><div class='panel-credential'><div class='panel-credential__icon'><svg viewBox='0 0 24 24'><circle cx='12' cy='8' r='4'/><path d='M4 20c0-4 3.6-7 8-7s8 3 8 7'/></svg></div><div class='panel-credential__text'><strong>15 lat w branży</strong>Rynek pierwotny i wtórny</div></div></div><div class='panel-cta-group'><a href='#' class='panel-cta-primary'>Umów bezpłatne spotkanie →</a><a href='#' class='panel-cta-secondary'><span>↗</span> Zobacz sprzedane nieruchomości</a></div></div><div class='panel-footer'><div class='panel-footer__agent'><strong>Anna Wiśniewska</strong><br>Dyrektor Oddziału</div><div class='panel-footer__stat'><span class='panel-footer__num'>420+</span><span class='panel-footer__label'>Sprzedanych nieruchomości</span></div></div></div><div class='hero__photo-side'><div class='hero__photo'></div><div class='hero__photo-edge'></div><div class='hero__photo-tag'><span class='hero__photo-tag-label'>Nieruchomość miesiąca</span><span class='hero__photo-tag-name'>Apartament, Mokotów, Warszawa</span></div></div></section></body></html>"></iframe>
+                  <div class="demo-open-pill">Otwórz pełny widok →</div>
+                  <div class="demo-open-pill">Otwórz pełny widok →</div>
+                  <div class="demo-open-pill">Otwórz pełny widok →</div>
         </div>
         <div class="demo-info">
           <div>
@@ -697,7 +816,7 @@
       </div>
 
       <!-- KLINIKA — z pliku clinic-1.html, przetłumaczona na polski -->
-      <div class="demo-card-new">
+      <div class="demo-card-new" data-demo-url="demo-klinika.html" tabindex="0" role="link">
         <div class="demo-iframe-wrap" style="height:396px;">
           <iframe scrolling="no" srcdoc="<!DOCTYPE html><html lang='pl'><head><meta charset='UTF-8'><link href='https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap' rel='stylesheet'><style>*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}html,body{height:100%;font-family:&apos;DM Sans&apos;,sans-serif}.hero{display:flex;width:100%;height:100vh;min-height:680px;overflow:hidden}.hero__panel{flex:0 0 44%;background:#faf6f0;display:flex;flex-direction:column;position:relative;overflow:hidden}.hero__panel::before{content:&apos;&apos;;position:absolute;inset:0;background:radial-gradient(ellipse at bottom left,rgba(196,120,90,0.04) 0%,transparent 70%);pointer-events:none}.hero__portrait-side{flex:0 0 56%;position:relative;overflow:hidden}.hero__portrait{position:absolute;inset:0;background-image:url(&apos;https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=1100&q=90&fit=crop&crop=center&apos;);background-size:cover;background-position:center 15%}.hero__portrait-edge{position:absolute;top:0;left:0;bottom:0;width:80px;background:linear-gradient(to right,rgba(250,246,240,0.15),transparent);pointer-events:none;z-index:2}.hero__photo-quote{position:absolute;bottom:52px;right:44px;z-index:5;max-width:210px;text-align:right}.hero__photo-quote-mark{font-family:&apos;Cormorant Garamond&apos;,serif;font-size:48px;line-height:1;color:rgba(255,255,255,0.4);display:block;margin-bottom:-8px}.hero__photo-quote-text{font-family:&apos;Cormorant Garamond&apos;,serif;font-style:italic;font-weight:300;font-size:15px;line-height:1.5;color:rgba(255,255,255,0.8)}.panel-nav{position:relative;z-index:10;display:flex;align-items:center;justify-content:space-between;padding:36px 52px}.panel-nav__logo{font-family:&apos;Cormorant Garamond&apos;,serif;font-weight:400;font-size:20px;letter-spacing:0.2em;color:#2a2520}.panel-nav__logo span{font-style:italic;font-weight:300}.panel-nav__menu{display:flex;gap:22px;list-style:none}.panel-nav__menu a{font-size:11px;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:#9a8f84;text-decoration:none}.panel-body{position:relative;z-index:10;flex:1;display:flex;flex-direction:column;justify-content:center;padding:16px 52px}.panel-tag{display:flex;align-items:center;gap:10px;margin-bottom:28px}.panel-tag__line{width:28px;height:1px;background:#c4785a}.panel-tag__text{font-size:10px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:#c4785a}.panel-headline{font-family:&apos;Cormorant Garamond&apos;,serif;font-weight:300;font-style:italic;font-size:58px;line-height:1.1;color:#2a2520;letter-spacing:-0.01em;margin-bottom:24px;max-width:360px}.panel-headline strong{font-weight:400;font-style:normal;color:#1a1512}.panel-sub{font-size:14px;font-weight:300;line-height:1.85;color:#7a7068;max-width:305px;margin-bottom:38px}.panel-credentials{display:flex;align-items:flex-start;gap:20px;margin-bottom:38px;padding-bottom:38px;border-bottom:1px solid rgba(42,37,32,0.1)}.panel-credential{display:flex;align-items:flex-start;gap:10px}.panel-credential__icon{width:32px;height:32px;border:1px solid rgba(196,120,90,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}.panel-credential__icon svg{width:14px;height:14px;stroke:#c4785a;fill:none;stroke-width:1.5}.panel-credential__text{font-size:11px;font-weight:400;line-height:1.5;color:#7a7068}.panel-credential__text strong{display:block;color:#2a2520;font-weight:500;font-size:12px;margin-bottom:2px}.panel-cta-group{display:flex;flex-direction:column;gap:14px;align-items:flex-start}.panel-cta-primary{display:inline-flex;align-items:center;gap:12px;font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:#2a2520;text-decoration:none;border:1px solid #c4785a;padding:15px 26px;transition:all 0.35s ease}.panel-cta-secondary{font-size:12px;font-weight:400;color:#9a8f84;text-decoration:none;letter-spacing:0.06em;display:flex;align-items:center;gap:8px}.panel-footer{position:relative;z-index:10;padding:20px 52px;border-top:1px solid rgba(42,37,32,0.1);display:flex;align-items:center;justify-content:space-between}.panel-footer__doctor{font-family:&apos;Cormorant Garamond&apos;,serif;font-size:14px;color:#5a5048}.panel-footer__doctor strong{font-weight:500;color:#2a2520;font-size:15px}.panel-footer__patients{text-align:right}.panel-footer__num{font-family:&apos;Cormorant Garamond&apos;,serif;font-weight:400;font-size:22px;color:#c4785a;display:block}.panel-footer__label{font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:#9a8f84}</style></head><body><section class='hero'><div class='hero__panel'><nav class='panel-nav'><div class='panel-nav__logo'><span>Lumière</span> Klinika</div><ul class='panel-nav__menu'><li><a href='#'>Zabiegi</a></li><li><a href='#'>Efekty</a></li><li><a href='#'>O nas</a></li></ul></nav><div class='panel-body'><div class='panel-tag'><div class='panel-tag__line'></div><span class='panel-tag__text'>Medycyna Estetyczna · Warszawa</span></div><h1 class='panel-headline'>Przywróć swój<br><strong>Naturalny</strong><br>Blask</h1><p class='panel-sub'>Spersonalizowane zabiegi estetyczne łączące precyzję kliniczną z głębokim rozumieniem naturalnego piękna.</p><div class='panel-credentials'><div class='panel-credential'><div class='panel-credential__icon'><svg viewBox='0 0 24 24'><path d='M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.3L12 17l-6.2 4.2 2.4-7.3L2 9.4h7.6z'/></svg></div><div class='panel-credential__text'><strong>Certyfikat Jakości</strong>Specjalista medycyny estetycznej</div></div><div class='panel-credential'><div class='panel-credential__icon'><svg viewBox='0 0 24 24'><circle cx='12' cy='8' r='4'/><path d='M4 20c0-4 3.6-7 8-7s8 3 8 7'/></svg></div><div class='panel-credential__text'><strong>18 lat doświadczenia</strong>Ekspert zabiegów iniekcyjnych</div></div></div><div class='panel-cta-group'><a href='#' class='panel-cta-primary'>Umów konsultację →</a><a href='#' class='panel-cta-secondary'><span>↗</span> Zobacz efekty zabiegów</a></div></div><div class='panel-footer'><div class='panel-footer__doctor'><strong>Dr Anna Kowalska, MD</strong><br>Dyrektor Medyczny i Założycielka</div><div class='panel-footer__patients'><span class='panel-footer__num'>3 200+</span><span class='panel-footer__label'>Zadowolonych pacjentek</span></div></div></div><div class='hero__portrait-side'><div class='hero__portrait'></div><div class='hero__portrait-edge'></div><div class='hero__photo-quote'><span class='hero__photo-quote-mark'>&ldquo;</span><span class='hero__photo-quote-text'>Naturalne efekty, które podkreślają to, kim już jesteś.</span></div></div></section></body></html>"></iframe>
         </div>
@@ -711,7 +830,7 @@
       </div>
 
       <!-- BUDOWLANA — z pliku construction-2.html, przetłumaczona na polski -->
-      <div class="demo-card-new">
+      <div class="demo-card-new" data-demo-url="demo-budowlana.html" tabindex="0" role="link">
         <div class="demo-iframe-wrap" style="height:396px;">
           <iframe scrolling="no" srcdoc="<!DOCTYPE html><html lang='pl'><head><meta charset='UTF-8'><link href='https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap' rel='stylesheet'><style>*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}html,body{height:100%;font-family:&apos;Inter&apos;,sans-serif}.hero{display:flex;width:100%;height:100vh;min-height:680px;overflow:hidden}.hero__left{flex:0 0 50%;background:#141414;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}.hero__left::before{content:&apos;&apos;;position:absolute;inset:0;background-image:repeating-linear-gradient(-45deg,rgba(255,255,255,0.013) 0px,rgba(255,255,255,0.013) 1px,transparent 1px,transparent 8px);pointer-events:none}.hero__split-accent{position:absolute;right:0;top:50%;transform:translateY(-50%);z-index:5;width:4px;height:80px;background:#e85d04}.left-nav{position:relative;z-index:10;display:flex;align-items:center;justify-content:space-between;padding:34px 52px}.left-nav__logo{font-family:&apos;Oswald&apos;,sans-serif;font-weight:700;font-size:22px;letter-spacing:0.08em;text-transform:uppercase;color:#fff}.left-nav__logo span{color:#e85d04}.left-nav__badge{font-family:&apos;Inter&apos;,sans-serif;font-size:9.5px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.35);border:1px solid rgba(255,255,255,0.12);padding:6px 11px}.left-body{position:relative;z-index:10;flex:1;display:flex;flex-direction:column;justify-content:center;padding:0 52px}.left-eyebrow{font-size:11px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:#e85d04;margin-bottom:26px;display:flex;align-items:center;gap:12px}.left-eyebrow::before{content:&apos;&apos;;width:24px;height:2px;background:#e85d04}.left-headline{font-family:&apos;Oswald&apos;,sans-serif;font-weight:700;font-size:62px;line-height:1.05;letter-spacing:0.02em;text-transform:uppercase;color:#fff;margin-bottom:28px}.left-headline .accent{color:#e85d04}.left-sub{font-size:14px;font-weight:300;line-height:1.75;color:rgba(255,255,255,0.42);max-width:330px;margin-bottom:40px}.left-stats{display:flex;align-items:flex-end;gap:28px;margin-bottom:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,0.07)}.left-stat-num{display:block;font-family:&apos;Oswald&apos;,sans-serif;font-weight:600;font-size:34px;color:#fff;line-height:1;margin-bottom:6px}.left-stat-label{font-size:10px;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.3)}.left-stat-divider{width:1px;height:36px;background:rgba(255,255,255,0.08);margin-bottom:8px}.left-cta-group{display:flex;flex-direction:column;align-items:flex-start;gap:14px}.left-cta-primary{display:inline-flex;align-items:center;gap:12px;background:#e85d04;color:#fff;font-family:&apos;Oswald&apos;,sans-serif;font-size:16px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;padding:17px 34px}.left-cta-secondary{font-size:12px;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);text-decoration:none;display:flex;align-items:center;gap:8px}.left-footer{position:relative;z-index:10;padding:20px 52px;border-top:1px solid rgba(255,255,255,0.07);display:flex;align-items:center;gap:24px}.left-footer__cert{font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.28)}.left-footer__sep{width:1px;height:14px;background:rgba(255,255,255,0.1)}.hero__right{flex:0 0 50%;position:relative;overflow:hidden}.hero__photo{position:absolute;inset:0;background-image:url(&apos;https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1400&q=85&fit=crop&crop=center&apos;);background-size:cover;background-position:center center}.hero__photo-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(20,20,20,0.2),transparent 30%)}.hero__project-label{position:absolute;bottom:36px;right:36px;z-index:10;text-align:right}.hero__project-label-top{font-size:9.5px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.45);display:block;margin-bottom:4px}.hero__project-label-name{font-family:&apos;Oswald&apos;,sans-serif;font-weight:500;font-size:16px;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.8)}.right-nav{position:absolute;top:34px;right:38px;z-index:20;display:flex;align-items:center;gap:26px;list-style:none}.right-nav a{font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.55);text-decoration:none}</style></head><body><section class='hero'><div class='hero__left'><div class='hero__split-accent'></div><div class='left-nav'><div class='left-nav__logo'>Żelazny<span>bud</span></div><div class='left-nav__badge'>Licencja · Ubezpieczenie · Od 1998</div></div><div class='left-body'><p class='left-eyebrow'>Generalne Wykonawstwo Budowlane</p><h1 class='left-headline'>Solidne budowy.<br><span class='accent'>Uczciwe ceny.</span><br>Na czas.</h1><p class='left-sub'>Budujemy w całej Polsce od 26 lat. Własna ekipa, bez podwykonawców. Jakość, która mówi sama za siebie.</p><div class='left-stats'><div><span class='left-stat-num'>350+</span><span class='left-stat-label'>Projektów</span></div><div class='left-stat-divider'></div><div><span class='left-stat-num'>26</span><span class='left-stat-label'>Lat na rynku</span></div><div class='left-stat-divider'></div><div><span class='left-stat-num'>A+</span><span class='left-stat-label'>Ocena klientów</span></div></div><div class='left-cta-group'><a href='#' class='left-cta-primary'>Zapytaj o wycenę →</a><a href='#' class='left-cta-secondary'>→ Galeria realizacji</a></div></div><div class='left-footer'><span class='left-footer__cert'>Certyfikat UDT</span><div class='left-footer__sep'></div><span class='left-footer__cert'>Partner Budimex</span><div class='left-footer__sep'></div><span class='left-footer__cert'>ISO 9001:2015</span></div></div><div class='hero__right'><div class='hero__photo'></div><div class='hero__photo-overlay'></div><ul class='right-nav'><li><a href='#'>Realizacje</a></li><li><a href='#'>Usługi</a></li><li><a href='#'>O nas</a></li><li><a href='#'>Kontakt</a></li></ul><div class='hero__project-label'><span class='hero__project-label-top'>Realizacja</span><span class='hero__project-label-name'>Park Handlowy Południe, Kraków</span></div></div></section></body></html>"></iframe>
         </div>
@@ -724,6 +843,18 @@
         </div>
       </div>
 
+    </div>
+  </section>
+</div>
+
+
+<!-- ══ SEO COPY ══ -->
+<div class="container">
+  <section class="section" id="seo-copy">
+    <div class="section-heading">
+      <div class="section-label">Strony internetowe dla firm</div>
+      <h2 class="section-h2">Projektujemy strony, które wyglądają profesjonalnie i ułatwiają zdobywanie klientów</h2>
+      <p class="section-sub">Axario tworzy strony internetowe dla firm usługowych w całej Polsce. Łączymy premium design, czytelną strukturę treści i techniczne SEO foundation, żeby Twoja marka wyglądała lepiej i była łatwiejsza do znalezienia w Google.</p>
     </div>
   </section>
 </div>
@@ -881,7 +1012,7 @@
         </div>
         <div class="chatbot-price">
           <strong>od 400 zł</strong>
-          <span>miesięcznie, bez długoterminowych umów</span>
+          
         </div>
       </div>
 
@@ -1012,7 +1143,7 @@
   <footer class="footer-rich">
     <div class="footer-top">
       <div class="footer-brand">
-        <div class="footer-logo">Ax<span>.</span>ario</div>
+        <div class="footer-logo">Axario</div>
         <p class="footer-tagline">Premium studio projektowania stron internetowych dla firm usługowych w Polsce.</p>
         <div class="footer-social">
           <a href="#" aria-label="Facebook">fb</a>
@@ -1063,17 +1194,133 @@
   </footer>
 </div>
 
-<!-- FLOAT CHATBOT -->
-<button class="float-bot" onclick="document.getElementById('chatbot').scrollIntoView({behavior:'smooth'})" aria-label="Czat">
-  💬
-  <span class="float-tooltip">Masz pytanie? Napisz do nas</span>
-</button>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<!-- FLOAT CHATBOT -->
+<div class="chat-floating" aria-hidden="false">
+  <button class="chat-launcher" type="button" aria-label="Otwórz chat z asystentem AI">
+    <span class="chat-launcher-dot">AI</span>
+    <span class="chat-launcher-label">Zapytaj AI</span>
+  </button>
+</div>
+<div class="chat-overlay" aria-hidden="true"></div>
+<section class="chat-popup" aria-label="Chat z asystentem AI" aria-hidden="true">
+  <div class="chat-popup-inner">
+    <header class="chat-popup-header">
+      <div class="chat-popup-header-title">
+        <strong>Asystent Axario</strong>
+        <span>Zadaj pytanie o stronę, chatbot AI albo wycenę.</span>
+      </div>
+      <button class="chat-popup-close" type="button" aria-label="Zamknij chat">×</button>
+    </header>
+    <div class="chat-window" id="chatWindowFloating" aria-live="polite"></div>
+    <div class="chat-suggestions">
+      <button type="button" class="suggestion-chip">Ile kosztuje strona firmowa?</button>
+      <button type="button" class="suggestion-chip">Czy możecie zrobić stronę dla kliniki?</button>
+      <button type="button" class="suggestion-chip">Jak działa chatbot AI na stronie?</button>
+    </div>
+    <form id="chatFormFloating" class="chat-input-wrap" autocomplete="off">
+      <input id="chatInputFloating" type="text" name="message" placeholder="Napisz wiadomość..." />
+      <button type="submit" class="btn btn-primary">Wyślij</button>
+    </form>
+    <p class="chat-popup-footer">To demo. Na wdrożeniu chatbot może odpowiadać na pytania o ofertę, wycenę i kontakt.</p>
+  </div>
+</section>
+
+<script>
+  function addMessage(target, text, type) {
+    const div = document.createElement('div');
+    div.className = 'message ' + type;
+    div.textContent = text;
+    target.appendChild(div);
+    target.scrollTop = target.scrollHeight;
+  }
+
+  function setupPopupChat() {
+    const launcher = document.querySelector('.chat-launcher');
+    const popup = document.querySelector('.chat-popup');
+    const overlay = document.querySelector('.chat-overlay');
+    const closeBtn = document.querySelector('.chat-popup-close');
+    const chatWindow = document.getElementById('chatWindowFloating');
+    const chatForm = document.getElementById('chatFormFloating');
+    const chatInput = document.getElementById('chatInputFloating');
+    const chips = document.querySelectorAll('.chat-popup .suggestion-chip');
+
+    if (chatWindow && !chatWindow.dataset.ready) {
+      addMessage(chatWindow, 'Cześć! Jestem asystentem Axario. Mogę podpowiedzieć, jaki typ strony wybrać i od czego zaczyna się wycena.', 'bot');
+      chatWindow.dataset.ready = '1';
+    }
+
+    function openPopup() {
+      popup.classList.add('is-open');
+      overlay.classList.add('is-open');
+      if (chatInput) setTimeout(() => chatInput.focus(), 120);
+    }
+
+    function closePopup() {
+      popup.classList.remove('is-open');
+      overlay.classList.remove('is-open');
+    }
+
+    launcher?.addEventListener('click', openPopup);
+    closeBtn?.addEventListener('click', closePopup);
+    overlay?.addEventListener('click', closePopup);
+
+    function respond(text) {
+      const lower = text.toLowerCase();
+      let reply = 'Jasne — przygotujemy bezpłatną wycenę po krótkim opisie branży, zakresu strony i terminu realizacji.';
+      if (lower.includes('koszt') || lower.includes('cena')) {
+        reply = 'Landing page zaczyna się od 799 zł, a pełna strona firmowa od 2499 zł. Dokładna wycena zależy od liczby podstron i funkcji.';
+      } else if (lower.includes('klin')) {
+        reply = 'Tak — projektujemy strony dla klinik i gabinetów. Możemy przygotować układ pod zabiegi, efekty, FAQ i formularze kontaktowe.';
+      } else if (lower.includes('chatbot')) {
+        reply = 'Chatbot AI może odpowiadać 24/7, zbierać leady i wstępnie kwalifikować klientów. W Axario wdrażamy go jako dodatek do strony lub osobno.';
+      } else if (lower.includes('wycena') || lower.includes('brief')) {
+        reply = 'Najprościej: wyślij krótki opis firmy i celu strony. Na tej podstawie wracamy z propozycją zakresu i wyceną.';
+      }
+      return reply;
+    }
+
+    function handleMessage(text) {
+      const value = text.trim();
+      if (!value || !chatWindow) return;
+      addMessage(chatWindow, value, 'user');
+      setTimeout(() => addMessage(chatWindow, respond(value), 'bot'), 350);
+    }
+
+    chips.forEach((chip) => chip.addEventListener('click', () => handleMessage(chip.textContent || '')));
+    chatForm?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const value = chatInput.value;
+      chatInput.value = '';
+      handleMessage(value);
+    });
+  }
+
+  function setupDemoCards() {
+    document.querySelectorAll('.demo-card-new[data-demo-url]').forEach((card) => {
+      const url = card.getAttribute('data-demo-url');
+      if (!url) return;
+      card.addEventListener('click', () => window.open(url, '_blank'));
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          window.open(url, '_blank');
+        }
+      });
+    });
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
     const btn = e.target.querySelector('.form-submit');
+    if (!btn) return;
     btn.textContent = 'Wysłano! Odezwiemy się wkrótce ✓';
     btn.style.background = 'linear-gradient(135deg,#16a34a,#4ade80)';
     btn.style.color = '#fff';
-    
+  }
+
+  setupPopupChat();
+  setupDemoCards();
+</script>
+</body>
+</html>

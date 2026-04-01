@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#060e1c"/>
+      <stop offset="100%" stop-color="#0a1628"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="20%" cy="15%" r="60%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="82%" cy="18%" r="55%">
+      <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#60a5fa" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow1)"/>
+  <rect width="1200" height="630" fill="url(#glow2)"/>
+  <text x="90" y="210" fill="#60a5fa" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">Axario</text>
+  <text x="90" y="320" fill="#f0f6ff" font-family="Inter, Arial, sans-serif" font-size="76" font-weight="800">Strony internetowe</text>
+  <text x="90" y="400" fill="#f0f6ff" font-family="Inter, Arial, sans-serif" font-size="76" font-weight="800">dla firm</text>
+  <text x="90" y="475" fill="rgba(224,238,255,0.75)" font-family="Inter, Arial, sans-serif" font-size="28">Premium design • SEO foundation • chatbot AI</text>
+</svg>

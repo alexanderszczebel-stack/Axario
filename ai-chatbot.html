@@ -3,12 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>AI chatbot dla firm – chatbot na stronę internetową | Axario</title>
-    <meta
-      name="description"
-      content="AI chatbot dla firm, który odpowiada na pytania o ofertę, wyjaśnia usługi i kieruje do darmowej wyceny — również poza godzinami pracy."
-    />
+    <title>AI chatbot dla firm | Axario</title>
+    <meta name="description" content="AI chatbot dla firm odpowiada 24/7, pomaga klientom zrozumieć ofertę i zbiera leady ze strony internetowej." />
     <link rel="canonical" href="https://axario.pl/ai-chatbot.html" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#050509" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="AI chatbot dla firm | Axario" />
+    <meta property="og:description" content="Chatbot AI dla firm, który odpowiada na pytania 24/7 i pomaga zbierać leady." />
+    <meta property="og:url" content="https://axario.pl/ai-chatbot.html" />
+    <meta property="og:image" content="https://axario.pl/og-image.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="AI chatbot dla firm | Axario" />
+    <meta name="twitter:description" content="Chatbot AI dla firm, który odpowiada na pytania 24/7 i pomaga zbierać leady." />
+    <meta name="twitter:image" content="https://axario.pl/og-image.svg" />
+    <script type="application/ld+json">{
+      "@context":"https://schema.org",
+      "@graph":[
+        {"@type":"WebSite","name":"Axario","url":"https://axario.pl/"},
+        {"@type":"Organization","name":"Axario","url":"https://axario.pl/","logo":"https://axario.pl/og-image.svg"},
+        {"@type":"Service","serviceType":"AI chatbot dla firm","provider":{"@type":"Organization","name":"Axario"},"areaServed":{"@type":"Country","name":"Polska"}},
+        {"@type":"FAQPage","mainEntity":[
+          {"@type":"Question","name":"Czy chatbot AI można dodać do nowej lub obecnej strony?","acceptedAnswer":{"@type":"Answer","text":"Tak. Możemy wdrożyć chatbota zarówno na nowej stronie, jak i na istniejącej witrynie po sprawdzeniu warunków technicznych."}},
+          {"@type":"Question","name":"Czy chatbot będzie znał moją ofertę?","acceptedAnswer":{"@type":"Answer","text":"Tak. Na etapie wdrożenia konfigurujemy chatbota na podstawie materiałów o firmie i ofercie."}},
+          {"@type":"Question","name":"Czy chatbot może przekazywać leady do mojego CRM lub maila?","acceptedAnswer":{"@type":"Answer","text":"Tak. Możliwe są integracje z CRM-em, systemem ticketowym lub skrzynką mailową."}}
+        ]}
+      ]
+    }</script>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -19,8 +40,7 @@
     <header class="site-header">
       <div class="container nav">
         <a href="index.html" class="logo">
-          <span class="logo-mark"></span>
-          <span>Axario</span>
+          <span class="logo-text">Axario</span>
         </a>
         <button class="nav-toggle" aria-label="Otwórz menu">
           <span></span><span></span>
@@ -127,7 +147,7 @@
                   id="chatInput"
                   type="text"
                   name="message"
-                  placeholder="Napisz np. „Prowadzę klinikę, czy chatbot ma sens?""
+                  placeholder="Napisz np. „Prowadzę klinikę, czy chatbot ma sens?”"
                 />
                 <button type="submit" class="btn btn-primary btn-sm">Zapytaj AI</button>
               </form>
@@ -289,8 +309,7 @@
       <div class="container footer-content">
         <div>
           <div class="logo footer-logo">
-            <span class="logo-mark"></span>
-            <span>Axario</span>
+            <span class="logo-text">Axario</span>
           </div>
           <p>
             Nowoczesne strony internetowe dla firm w Polsce – z mocnym SEO foundation i AI chatbotem, który wspiera kontakt
