@@ -3,7 +3,7 @@ const navToggle = document.querySelector('.nav-toggle');
 // Chatbot: API logic (shared by all chatbots on site)
 async function fetchChatbotReply(userMessage) {
   try {
-    const response = await fetch('/api/chat', {
+    const response = await fetch('https://axario-chat-backend.onrender.com/api/chat', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
