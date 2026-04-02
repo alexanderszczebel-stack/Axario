@@ -3,37 +3,104 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blog o stronach internetowych, SEO i lead generation | Axario</title>
-  <meta name="description" content="Praktyczne artykuły Axario o stronach internetowych, SEO, lead generation i chatbotach AI dla firm usługowych." />
+  <title>Strony internetowe dla firm | Axario</title>
+  <meta name="description" content="Tworzymy nowoczesne strony internetowe dla firm usługowych: klinik, agencji nieruchomości i firm budowlanych. Premium design, szybka realizacja i bezpłatna wycena." />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://axario.pl/blog.html" />
+  <link rel="canonical" href="https://axario.pl/" />
   <meta name="theme-color" content="#060e1c" />
   <meta name="author" content="Axario" />
   <meta name="format-detection" content="telephone=no" />
+
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://axario.pl/blog.html" />
-  <meta property="og:title" content="Blog o stronach internetowych, SEO i lead generation | Axario" />
-  <meta property="og:description" content="Praktyczne artykuły Axario o stronach internetowych, SEO, lead generation i chatbotach AI dla firm usługowych." />
+  <meta property="og:url" content="https://axario.pl/" />
+  <meta property="og:title" content="Axario — Projektowanie Stron WWW dla Firm" />
+  <meta property="og:description" content="Profesjonalne strony internetowe dla firm usługowych. Nowoczesny design, szybka realizacja, jasne ceny. Darmowa wycena." />
   <meta property="og:image" content="https://axario.pl/og-image.svg" />
   <meta property="og:locale" content="pl_PL" />
   <meta property="og:site_name" content="Axario Web Studio" />
+
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Blog o stronach internetowych, SEO i lead generation | Axario" />
-  <meta name="twitter:description" content="Porady Axario o stronach internetowych dla firm, SEO i chatbotach AI." />
+  <meta name="twitter:title" content="Axario — Projektowanie Stron WWW dla Firm" />
+  <meta name="twitter:description" content="Premium studio web design. Strony dla firm usługowych od 799 zł." />
   <meta name="twitter:image" content="https://axario.pl/og-image.svg" />
-  <script type="application/ld+json">{
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
     "@context": "https://schema.org",
-    "@type": "Blog",
-    "name": "Blog Axario",
-    "url": "https://axario.pl/blog.html",
-    "description": "Praktyczne artykuły o stronach internetowych, SEO i lead generation.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Axario",
-      "url": "https://axario.pl/",
-      "logo": "https://axario.pl/og-image.svg"
-    }
-  }</script>
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://axario.pl/#website",
+        "url": "https://axario.pl/",
+        "name": "Axario",
+        "inLanguage": "pl-PL",
+        "description": "Strony internetowe dla firm usługowych"
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://axario.pl/#organization",
+        "name": "Axario",
+        "url": "https://axario.pl/",
+        "logo": "https://axario.pl/og-image.svg"
+      },
+      {
+        "@type": "Service",
+        "@id": "https://axario.pl/#service-strony",
+        "serviceType": "Projektowanie stron internetowych",
+        "provider": {"@id": "https://axario.pl/#organization"},
+        "areaServed": {"@type": "Country", "name": "Polska"},
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Landing page",
+            "price": "799",
+            "priceCurrency": "PLN"
+          },
+          {
+            "@type": "Offer",
+            "name": "Strona firmowa",
+            "price": "2499",
+            "priceCurrency": "PLN"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://axario.pl/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Ile trwa realizacja projektu?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Landing page realizujemy zazwyczaj w ciągu 7–14 dni. Pełna strona firmowa to 2–4 tygodnie, w zależności od zakresu."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Czego potrzebujecie na start?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Wystarczy krótka rozmowa lub wypełniony formularz kontaktowy. Na bazie tego przygotowujemy wycenę i plan działania."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Czy chatbot AI można dodać do istniejącej strony?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Tak. Chatbot to osobny moduł, który integrujemy z każdą istniejącą stroną."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -765,131 +832,361 @@
       <!-- BUDOWLANA — z pliku construction-2.html, przetłumaczona na polski -->
       <div class="demo-card-new" data-demo-url="demo-budowlana.html" tabindex="0" role="link">
         <div class="demo-iframe-wrap" style="height:396px;">
-          <iframe scrolling="no" srcdoc="<!DOCTYPE html><html lang='pl'><head><meta charset='UTF-8'><link href='https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap' rel='stylesheet'><style>*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}html,body{height:100%;font-family:&apos;Inter&apos;,sans-serif}.hero{display:flex;width:100%;height:100vh;min-height:680px;overflow:hidden}.hero__left{flex:0 0 50%;background:#141414;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}.hero__left::before{content:&apos;&apos;;position:absolute;inset:0;background-image:repeating-linear-gradient(-45deg,rgba(255,255,255,0.013) 0px,rgba(255,255,255,0.013) 1px,transparent 1px,transparent 8px);pointer-events:none}.hero__split-accent{position:absolute;right:0;top:50%;transform:translateY(-50%);z-index:5;width:4px;height:80px;background:#e85d04}.left-nav{position:relative;z-index:10;display:flex;align-items:center;justify-content:space-between;padding:34px 52px}.left-nav__logo{font-family:&apos;Oswald&apos;,sans-serif;font-weight:700;font-size:22px;letter-spacing:0.08em;text-transform:uppercase;color:#fff}.left-nav__logo span{color:#e85d04}.left-nav__badge{font-family:&apos;Inter&apos;,sans-serif;font-size:9.5px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.35);border:1px solid rgba(255,255,255,0.12);padding:6px 11px}.left-body{position:relative;z-index:10;flex:1;display:flex;flex-direction:column;justify-content:center;padding:0 52px}.left-eyebrow{font-size:11px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:#e85d04;margin-bottom:26px;display:flex;align-items:center;gap:12px}.left-eyebrow::before{content:&apos;&apos;;width:24px;height:2px;background:#e85d04}.left-headline{font-family:&apos;Oswald&apos;,sans-serif;font-weight:700;font-size:62px;line-height:1.05;letter-spacing:0.02em;text-transform:uppercase;color:#fff;margin-bottom:28px}.left-headline .accent{color:#e85d04}.left-sub{font-size:14px;font-weight:300;line-height:1.75;color:rgba(255,255,255,0.42);max-width:330px;margin-bottom:40px}.left-stats{display:flex;align-items:flex-end;gap:28px;margin-bottom:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,0.07)}.left-stat-num{display:block;font-family:&apos;Oswald&apos;,sans-serif;font-weight:600;font-size:34px;color:#fff;line-height:1;margin-bottom:6px}.left-stat-label{font-size:10px;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.3)}.left-stat-divider{width:1px;height:36px;background:rgba(255,255,255,0.08);margin-bottom:8px}.left-cta-group{display:flex;flex-direction:column;align-items:flex-start;gap:14px}.left-cta-primary{display:inline-flex;align-items:center;gap:12px;background:#e85d04;color:#fff;font-family:&apos;Oswald&apos;,sans-serif;font-size:16px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;padding:17px 34px}.left-cta-secondary{font-size:12px;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);text-decoration:none;display:flex;align-items:center;gap:8px}.left-footer{position:relative;z-index:10;padding:20px 52px;border-top:1px solid rgba(255,255,255,0.07);display:flex;align-items:center;gap:24px}.left-footer__cert{font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.28)}.left-footer__sep{width:1px;height:14px;background:rgba(255,255,255,0.1)}.hero__right{flex:0 0 50%;position:relative;overflow:hidden}.hero__photo{position:absolute;inset:0;background-image:url(&apos;https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1400&q=85&fit=crop&crop=center&apos;);background-size:cover;background-position:center center}.hero__photo-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(20,20,20,0.2),transparent 30%)}.hero__project-label{position:absolute;bottom:36px;right:36px;z-index:10;text-align:right}.hero__project-label-top{font-size:9.5px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.45);display:block;margin-bottom:4px}.hero__project-label-name{font-family:&apos;Oswald&apos;,sans-serif;font-weight:500;font-size:16px;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.8)}.right-nav{position:absolute;top:34px;right:38px;z-index:20;display:flex;align-items:center;gap:26px;list-style:none}.right-nav a{font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.55);text-decoration:none}
-
-    .nav-links a.active { color: var(--text-primary); }
-    .nav-links a.active::after { content:""; display:block; width:100%; height:2px; margin-top:6px; background: var(--blue-400); border-radius:999px; }
-    .blog-hero-note { padding: 28px; border-radius: var(--radius-xl); background: rgba(255,255,255,0.05); border:1px solid var(--border); backdrop-filter: blur(14px); }
-    .blog-hero-note h3 { font-family: Inter, sans-serif; font-size: 30px; font-weight: 800; letter-spacing: -0.04em; margin-bottom: 12px; }
-    .blog-hero-note p { color: var(--text-secondary); font-size: 15px; line-height: 1.7; }
-    .blog-listing { padding: 24px 0 120px; }
-    .blog-header-wrap { display:flex; align-items:end; justify-content:space-between; gap:32px; margin-bottom: 44px; }
-    .blog-header-wrap p { max-width: 520px; color: var(--text-secondary); font-size: 15px; line-height: 1.7; }
-    .blog-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .article-card { padding: 30px; border-radius: var(--radius-xl); background: var(--bg-card); border:1px solid var(--border); transition: all .25s; }
-    .article-card:hover { transform: translateY(-3px); border-color: var(--border-blue); background: var(--bg-card-hover); }
-    .blog-meta { display:flex; gap:12px; margin-bottom: 14px; color: var(--text-muted); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
-    .article-card h3 { font-family: Inter, sans-serif; font-size: 28px; line-height: 1.15; letter-spacing:-0.04em; margin-bottom: 12px; }
-    .article-card p { color: var(--text-secondary); font-size: 15px; line-height: 1.75; margin-bottom: 18px; }
-    .link-inline { color: var(--blue-300); text-decoration: none; font-weight: 600; }
-    .link-inline:hover { color: var(--text-primary); }
-    .blog-strip { display:grid; grid-template-columns: repeat(3,1fr); gap:16px; margin: 0 0 52px; }
-    .blog-strip .usluga-card { padding: 24px; }
-    .blog-strip .usluga-card h3 { font-size: 18px; }
-    @media (max-width: 1100px) { .blog-grid, .blog-strip { grid-template-columns: 1fr; } }
-</style>
-</head>
-<body>
-<nav id="nav">
-  <a class="nav-logo" href="index.html">Axario</a>
-  <ul class="nav-links">
-    <li><a href="index.html#uslugi">Usługi</a></li>
-    <li><a href="index.html#cennik">Cennik</a></li>
-    <li><a href="blog.html" class="active">Blog</a></li>
-    <li><a href="index.html#faq">FAQ</a></li>
-  </ul>
-  <a href="index.html#kontakt" class="nav-cta">Darmowa wycena</a>
-</nav>
-
-<div class="container">
-  <section id="hero">
-    <div class="hero-left">
-      <div class="eyebrow"><span class="eyebrow-dot"></span>Axario — wiedza o stronach i SEO</div>
-      <h1>Blog,<br>który wspiera<br><em>sprzedaż.</em></h1>
-      <p>Praktyczne artykuły o stronach internetowych, SEO, lead generation i chatbotach AI — napisane tak, żeby realnie pomagały firmom usługowym podejmować lepsze decyzje.</p>
-      <div class="hero-actions">
-        <a href="#artykuly" class="btn btn-primary">Zobacz artykuły</a>
-        <a href="index.html#kontakt" class="btn btn-secondary">Darmowa wycena</a>
+          <iframe scrolling="no" srcdoc="<!DOCTYPE html><html lang='pl'><head><meta charset='UTF-8'><link href='https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap' rel='stylesheet'><style>*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}html,body{height:100%;font-family:&apos;Inter&apos;,sans-serif}.hero{display:flex;width:100%;height:100vh;min-height:680px;overflow:hidden}.hero__left{flex:0 0 50%;background:#141414;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}.hero__left::before{content:&apos;&apos;;position:absolute;inset:0;background-image:repeating-linear-gradient(-45deg,rgba(255,255,255,0.013) 0px,rgba(255,255,255,0.013) 1px,transparent 1px,transparent 8px);pointer-events:none}.hero__split-accent{position:absolute;right:0;top:50%;transform:translateY(-50%);z-index:5;width:4px;height:80px;background:#e85d04}.left-nav{position:relative;z-index:10;display:flex;align-items:center;justify-content:space-between;padding:34px 52px}.left-nav__logo{font-family:&apos;Oswald&apos;,sans-serif;font-weight:700;font-size:22px;letter-spacing:0.08em;text-transform:uppercase;color:#fff}.left-nav__logo span{color:#e85d04}.left-nav__badge{font-family:&apos;Inter&apos;,sans-serif;font-size:9.5px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.35);border:1px solid rgba(255,255,255,0.12);padding:6px 11px}.left-body{position:relative;z-index:10;flex:1;display:flex;flex-direction:column;justify-content:center;padding:0 52px}.left-eyebrow{font-size:11px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:#e85d04;margin-bottom:26px;display:flex;align-items:center;gap:12px}.left-eyebrow::before{content:&apos;&apos;;width:24px;height:2px;background:#e85d04}.left-headline{font-family:&apos;Oswald&apos;,sans-serif;font-weight:700;font-size:62px;line-height:1.05;letter-spacing:0.02em;text-transform:uppercase;color:#fff;margin-bottom:28px}.left-headline .accent{color:#e85d04}.left-sub{font-size:14px;font-weight:300;line-height:1.75;color:rgba(255,255,255,0.42);max-width:330px;margin-bottom:40px}.left-stats{display:flex;align-items:flex-end;gap:28px;margin-bottom:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,0.07)}.left-stat-num{display:block;font-family:&apos;Oswald&apos;,sans-serif;font-weight:600;font-size:34px;color:#fff;line-height:1;margin-bottom:6px}.left-stat-label{font-size:10px;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.3)}.left-stat-divider{width:1px;height:36px;background:rgba(255,255,255,0.08);margin-bottom:8px}.left-cta-group{display:flex;flex-direction:column;align-items:flex-start;gap:14px}.left-cta-primary{display:inline-flex;align-items:center;gap:12px;background:#e85d04;color:#fff;font-family:&apos;Oswald&apos;,sans-serif;font-size:16px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;padding:17px 34px}.left-cta-secondary{font-size:12px;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);text-decoration:none;display:flex;align-items:center;gap:8px}.left-footer{position:relative;z-index:10;padding:20px 52px;border-top:1px solid rgba(255,255,255,0.07);display:flex;align-items:center;gap:24px}.left-footer__cert{font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.28)}.left-footer__sep{width:1px;height:14px;background:rgba(255,255,255,0.1)}.hero__right{flex:0 0 50%;position:relative;overflow:hidden}.hero__photo{position:absolute;inset:0;background-image:url(&apos;https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1400&q=85&fit=crop&crop=center&apos;);background-size:cover;background-position:center center}.hero__photo-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(20,20,20,0.2),transparent 30%)}.hero__project-label{position:absolute;bottom:36px;right:36px;z-index:10;text-align:right}.hero__project-label-top{font-size:9.5px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.45);display:block;margin-bottom:4px}.hero__project-label-name{font-family:&apos;Oswald&apos;,sans-serif;font-weight:500;font-size:16px;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.8)}.right-nav{position:absolute;top:34px;right:38px;z-index:20;display:flex;align-items:center;gap:26px;list-style:none}.right-nav a{font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.55);text-decoration:none}</style></head><body><section class='hero'><div class='hero__left'><div class='hero__split-accent'></div><div class='left-nav'><div class='left-nav__logo'>Żelazny<span>bud</span></div><div class='left-nav__badge'>Licencja · Ubezpieczenie · Od 1998</div></div><div class='left-body'><p class='left-eyebrow'>Generalne Wykonawstwo Budowlane</p><h1 class='left-headline'>Solidne budowy.<br><span class='accent'>Uczciwe ceny.</span><br>Na czas.</h1><p class='left-sub'>Budujemy w całej Polsce od 26 lat. Własna ekipa, bez podwykonawców. Jakość, która mówi sama za siebie.</p><div class='left-stats'><div><span class='left-stat-num'>350+</span><span class='left-stat-label'>Projektów</span></div><div class='left-stat-divider'></div><div><span class='left-stat-num'>26</span><span class='left-stat-label'>Lat na rynku</span></div><div class='left-stat-divider'></div><div><span class='left-stat-num'>A+</span><span class='left-stat-label'>Ocena klientów</span></div></div><div class='left-cta-group'><a href='#' class='left-cta-primary'>Zapytaj o wycenę →</a><a href='#' class='left-cta-secondary'>→ Galeria realizacji</a></div></div><div class='left-footer'><span class='left-footer__cert'>Certyfikat UDT</span><div class='left-footer__sep'></div><span class='left-footer__cert'>Partner Budimex</span><div class='left-footer__sep'></div><span class='left-footer__cert'>ISO 9001:2015</span></div></div><div class='hero__right'><div class='hero__photo'></div><div class='hero__photo-overlay'></div><ul class='right-nav'><li><a href='#'>Realizacje</a></li><li><a href='#'>Usługi</a></li><li><a href='#'>O nas</a></li><li><a href='#'>Kontakt</a></li></ul><div class='hero__project-label'><span class='hero__project-label-top'>Realizacja</span><span class='hero__project-label-name'>Park Handlowy Południe, Kraków</span></div></div></section></body></html>"></iframe>
+        </div>
+        <div class="demo-info">
+          <div>
+            <h3>Firma budowlana</h3>
+            <p>Split 50/50 z industrialnym panelem i zdjęciem realizacji — siła i konkret.</p>
+          </div>
+          <div class="demo-tag">Budownictwo</div>
+        </div>
       </div>
-      <div class="hero-trust">
-        <span class="trust-item">SEO dla firm</span>
-        <span class="trust-item">Praktyczne porady</span>
-        <span class="trust-item">Lepszy content</span>
-      </div>
+
     </div>
+  </section>
+</div>
 
-    <div class="hero-visual">
-      <div class="hero-glow"></div>
-      <div class="hero-frame">
-        <div class="frame-badge">Content system</div>
-        <div class="frame-headline-block">
-          <div class="fh-bar" style="width:78%"></div>
-          <div class="fh-bar" style="width:62%"></div>
-          <div class="fh-bar" style="width:44%"></div>
-        </div>
-        <div class="frame-stats">
-          <div class="frame-stat"><div class="fsb-wrap"><div class="fsb" style="height:18px"></div><div class="fsb" style="height:24px"></div><div class="fsb" style="height:16px"></div><div class="fsb" style="height:30px"></div><div class="fsb" style="height:26px"></div></div></div>
-          <div class="frame-stat"><div class="fsb-wrap"><div class="fsb" style="height:22px"></div><div class="fsb" style="height:14px"></div><div class="fsb" style="height:28px"></div><div class="fsb" style="height:18px"></div><div class="fsb" style="height:32px"></div></div></div>
-          <div class="frame-stat"><div class="fsb-wrap"><div class="fsb" style="height:16px"></div><div class="fsb" style="height:30px"></div><div class="fsb" style="height:20px"></div><div class="fsb" style="height:26px"></div><div class="fsb" style="height:24px"></div></div></div>
-        </div>
+
+<!-- ══ SEO COPY (ukryte z widoku, zostawione tylko jako komentarz referencyjny) ══ -->
+
+<!-- ══ USŁUGI ══ -->
+<div class="container">
+  <section id="uslugi">
+    <div class="uslugi-header">
+      <div class="section-label">Co robimy</div>
+      <h2 class="section-h2">Strony internetowe, które<br>pracują na Twój biznes</h2>
+      <p class="section-sub">Nie sprzedajemy szablonów. Tworzymy profesjonalne strony WWW, które wzmacniają markę i przyciągają właściwych klientów.</p>
+    </div>
+    <div class="uslugi-grid">
+      <div class="usluga-card">
+        <div class="usluga-icon">✦</div>
+        <h3>Silna obecność marki</h3>
+        <p>Twoja strona staje się wizytówką na poziomie najlepszych firm w branży. Pierwsze wrażenie robi różnicę — dbamy o każdy detal.</p>
       </div>
-      <div class="hero-float">
-        <strong>+SEO</strong>
-        <span>Artykuły pomagają budować dodatkowy ruch, wzmacniać podstrony usługowe i domykać sprzedaż.</span>
+      <div class="usluga-card">
+        <div class="usluga-icon">◈</div>
+        <h3>Lepsze zaufanie klientów</h3>
+        <p>Profesjonalny wygląd to sygnał jakości. Klient widzi stronę, która buduje pewność siebie firmy i zachęca do kontaktu.</p>
+      </div>
+      <div class="usluga-card">
+        <div class="usluga-icon">⬡</div>
+        <h3>Czytelna prezentacja oferty</h3>
+        <p>Pomagamy jasno i skrótowo przedstawić to, co oferujesz — bez chaosu, bez zbędnych treści, z mocnym akcentem na wartość.</p>
+      </div>
+      <div class="usluga-card">
+        <div class="usluga-icon">◎</div>
+        <h3>Skuteczny przepływ kontaktu</h3>
+        <p>Formularze, przyciski CTA, sekcje lead-gen — wszystko zaprojektowane tak, by więcej odwiedzin zamieniało się w zapytania.</p>
+      </div>
+      <div class="usluga-card">
+        <div class="usluga-icon">▲</div>
+        <h3>Wsparcie SEO</h3>
+        <p>Czyste HTML, szybkie ładowanie, struktura nagłówków i metadane — solidna baza techniczna pod widoczność w Google.</p>
+      </div>
+      <div class="usluga-card">
+        <div class="usluga-icon">⚡</div>
+        <h3>Inteligentny asystent AI</h3>
+        <p>Opcjonalny chatbot, który odpowiada na pytania klientów przez całą dobę i wstępnie kwalifikuje zapytania zanim trafią do Ciebie.</p>
       </div>
     </div>
   </section>
 </div>
 
-<div class="container blog-listing" id="artykuly">
-  <div class="blog-strip">
-    <div class="usluga-card">
-      <div class="usluga-icon">✦</div>
-      <h3>Dodatkowy ruch z Google</h3>
-      <p>Dobrze napisany blog pomaga łapać frazy, których nie chcesz upychać na stronie głównej.</p>
+<!-- ══ PROCES ══ -->
+<div class="container">
+  <section id="proces">
+    <div class="proces-header">
+      <div class="section-label">Jak pracujemy</div>
+      <h2 class="section-h2">Jasny proces,<br>bez niespodzianek</h2>
+      <p class="section-sub" style="margin:0 auto;">Wiemy, że oddanie marki w czyjeś ręce wymaga zaufania. Dlatego każdy etap jest transparentny i przewidywalny.</p>
     </div>
-    <div class="usluga-card">
-      <div class="usluga-icon">◈</div>
-      <h3>Lepsze wsparcie sprzedaży</h3>
-      <p>Artykuły odpowiadają na pytania klientów jeszcze przed rozmową i wzmacniają zaufanie.</p>
+    <div class="proces-track">
+      <div class="proces-step">
+        <div class="step-num active">01</div>
+        <h3>Poznajemy firmę</h3>
+        <p>Rozmowa o Twojej branży, klientach i celach, które chcesz osiągnąć.</p>
+      </div>
+      <div class="proces-step">
+        <div class="step-num">02</div>
+        <h3>Ustalamy kierunek</h3>
+        <p>Wybieramy styl, układ i tone of voice dopasowany do Twojej marki.</p>
+      </div>
+      <div class="proces-step">
+        <div class="step-num">03</div>
+        <h3>Projektujemy</h3>
+        <p>Tworzysz projekt, który możesz ocenić i skomentować przed wdrożeniem.</p>
+      </div>
+      <div class="proces-step">
+        <div class="step-num">04</div>
+        <h3>Dopracowujemy</h3>
+        <p>Poprawki i ostatnie detale — dopilnujemy, żeby każdy element był na swoim miejscu.</p>
+      </div>
+      <div class="proces-step">
+        <div class="step-num">05</div>
+        <h3>Uruchamiamy</h3>
+        <p>Publikujemy stronę i przekazujemy Ci wszystkie dostępy i materiały.</p>
+      </div>
     </div>
-    <div class="usluga-card">
-      <div class="usluga-icon">⚡</div>
-      <h3>Fundament pod rozwój SEO</h3>
-      <p>To miejsce na kolejne tematy: koszt strony, chatbot AI, landing page, lokalne SEO i więcej.</p>
-    </div>
-  </div>
-
-  <div class="blog-header-wrap">
-    <div>
-      <div class="section-label">Artykuły</div>
-      <h2 class="section-h2">Praktyczne treści dla firm, które chcą lepiej wyglądać i lepiej sprzedawać</h2>
-    </div>
-    <p>Każdy wpis możesz potraktować jako osobne wejście z Google i wsparcie dla głównych usług Axario. To ma wyglądać jak część tej samej marki — nie jak inna strona.</p>
-  </div>
-
-  <div class="blog-grid">
-    <article class="article-card">
-      <div class="blog-meta"><span>SEO</span><span>6 min</span></div>
-      <h3>Ile kosztuje strona internetowa dla firmy?</h3>
-      <p>Co wpływa na cenę strony, kiedy wystarczy landing page, a kiedy potrzebna jest pełna strona firmowa.</p>
-      <a href="blog-ile-kosztuje-strona.html" class="link-inline">Czytaj artykuł →</a>
-    </article>
-    <article class="article-card">
-      <div class="blog-meta"><span>Lead generation</span><span>5 min</span></div>
-      <h3>Czy chatbot AI na stronie ma sens?</h3>
-      <p>Kiedy chatbot naprawdę pomaga, a kiedy wystarczy prosty formularz kontaktowy.</p>
-      <a href="blog-chatbot-ai-czy-warto.html" class="link-inline">Czytaj artykuł →</a>
-    </article>
-    <article class="article-card">
-      <div class="blog-meta"><span>UX</span><span>7 min</span></div>
-      <h3>Co powinna mieć dobra strona dla kliniki?</h3>
-      <p>Najważniejsze sekcje, które budują zaufanie i pomagają zwiększać liczbę zapisów.</p>
-      <a href="blog-strona-dla-kliniki.html" class="link-inline">Czytaj artykuł →</a>
-    </article>
-  </div>
+  </section>
 </div>
 
+<!-- ══ CENNIK ══ -->
+<div class="container">
+  <section id="cennik">
+    <div class="cennik-header">
+      <div class="section-label">Inwestycja</div>
+      <h2 class="section-h2">Cennik tworzenia stron<br>bez ukrytych kosztów</h2>
+      <p class="section-sub" style="margin:0 auto;">Trzy pakiety projektowania stron www — każdy dopasowany do innego etapu rozwoju firmy.</p>
+    </div>
+    <div class="cennik-grid">
+      <div class="cennik-card">
+        <div class="cennik-num">01</div>
+        <h3>Landing page</h3>
+        <p>Jedna strona pod konkretną usługę lub ofertę. Używana głównie do reklam albo szybkiego zbierania zapytań.</p>
+        <div class="cennik-price">
+          <div class="cennik-price-label">Cena od</div>
+          <div class="cennik-price-value">799 zł <small>— 1800 zł</small></div>
+        </div>
+      </div>
+      <div class="cennik-card featured">
+        <div class="cennik-num">02</div>
+        <h3>Strona firmowa</h3>
+        <p>Pełna strona firmy z podstronami: oferta, realizacje, kontakt. Dla klientów, którzy chcą mieć wszystko w jednym miejscu.</p>
+        <div class="cennik-price">
+          <div class="cennik-price-label">Cena od</div>
+          <div class="cennik-price-value">2499 zł</div>
+        </div>
+      </div>
+      <div class="cennik-card">
+        <div class="cennik-num">03</div>
+        <h3>Projekt indywidualny</h3>
+        <p>Większe projekty z niestandardowym układem, większą liczbą podstron albo dodatkowymi funkcjami.</p>
+        <div class="cennik-price">
+          <div class="cennik-price-label">Wycena</div>
+          <div class="cennik-price-value" style="font-size:22px;">Indywidualna</div>
+        </div>
+      </div>
+    </div>
+    <div class="cennik-bottom">
+      <p>Nie jesteś pewny, który pakiet pasuje do Twojej firmy? Napisz do nas — doradzimy bezpłatnie.</p>
+      <a href="#kontakt" class="btn btn-primary">Zapytaj o wycenę</a>
+    </div>
+  </section>
+</div>
+
+<!-- ══ CHATBOT / AI ══ -->
+<div class="container">
+  <section id="chatbot">
+    <div class="chatbot-inner">
+      <div class="chatbot-left">
+        <div class="section-label">AI Add-on</div>
+        <h2>Asystent, który<br>pracuje za Ciebie<br><em>24 godziny.</em></h2>
+        <p>Inteligentny chatbot zintegrowany z Twoją stroną. Odpowiada na pytania, zbiera dane kontaktowe i wstępnie kwalifikuje leady — zanim jeszcze odezwiesz się do klienta.</p>
+        <div class="chat-features">
+          <div class="chat-feat">
+            <div class="chat-feat-icon">👋</div>
+            <div class="chat-feat-text"><strong>Wita odwiedzających</strong><span>Angażuje od razu — zanim klient zdecyduje się wyjść.</span></div>
+          </div>
+          <div class="chat-feat">
+            <div class="chat-feat-icon">💬</div>
+            <div class="chat-feat-text"><strong>Odpowiada na pytania</strong><span>Ceny, terminy, zakres usług — bez Twojego udziału.</span></div>
+          </div>
+          <div class="chat-feat">
+            <div class="chat-feat-icon">🎯</div>
+            <div class="chat-feat-text"><strong>Kwalifikuje leady</strong><span>Do Ciebie trafiają tylko poważni klienci.</span></div>
+          </div>
+          <div class="chat-feat">
+            <div class="chat-feat-icon">🌙</div>
+            <div class="chat-feat-text"><strong>Dostępny całą dobę</strong><span>Działa niezależnie od godzin pracy Twojej firmy.</span></div>
+          </div>
+        </div>
+        <div class="chatbot-price">
+          <strong>od 400 zł</strong>
+          
+        </div>
+      </div>
+
+      <div>
+        <div class="chat-window">
+          <div class="chat-topbar">
+            <div class="chat-avatar">🤖</div>
+            <div>
+              <div class="chat-name">Asystent Axario</div>
+              <div class="chat-status">Asystent AI Twojej firmy</div>
+            </div>
+            <div class="chat-online-badge"><div class="chat-dot"></div>Online</div>
+          </div>
+          <div class="chat-msgs">
+            <div class="msg bot">Cześć! 👋 W czym mogę pomóc? Chętnie odpowiem na pytania lub umówię rozmowę z zespołem.</div>
+            <div class="msg user">Ile kosztuje strona firmowa?</div>
+            <div class="msg bot">Strona firmowa zaczyna się od 2499 zł. Cena zależy od liczby podstron i funkcji. Mogę zebrać kilka informacji i przygotować wycenę — zajmie to 2 minuty. 😊</div>
+            <div class="msg user">Chętnie, proszę.</div>
+            <div class="msg bot">Świetnie! Czym zajmuje się Twoja firma i czy masz już gotowe treści lub zdjęcia?</div>
+          </div>
+          <div class="chat-inputbar">
+            <input class="chat-inputfield" type="text" placeholder="Napisz wiadomość…" readonly />
+            <button class="chat-sendbtn">→</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══ FAQ ══ -->
+<div class="container">
+  <section id="faq">
+    <div class="faq-inner">
+      <div class="faq-left">
+        <div class="section-label">FAQ</div>
+        <h2>Najczęstsze pytania</h2>
+        <p>Jeśli nie znajdziesz odpowiedzi, napisz do nas — odpiszemy w ciągu 24 godzin.</p>
+        <a href="#kontakt" class="btn btn-secondary" style="font-size:14px;padding:12px 20px;">Zadaj własne pytanie →</a>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q">Ile trwa realizacja projektu?</div>
+          <div class="faq-a">Landing page realizujemy zazwyczaj w ciągu 7–14 dni. Pełna strona firmowa to 2–4 tygodnie, w zależności od zakresu. Terminy ustalamy indywidualnie na etapie briefu.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Czego potrzebujecie na start?</div>
+          <div class="faq-a">Wystarczy krótka rozmowa lub wypełniony formularz kontaktowy. Na bazie tego przygotowujemy wycenę i plan działania. Nie musisz mieć gotowych treści ani grafik — pomożemy Ci to zebrać.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Ile poprawek wchodzi w cenę?</div>
+          <div class="faq-a">W każdym projekcie uwzględniamy dwie rundy poprawek. Zależy nam na tym, żebyś był zadowolony z efektu końcowego — rozmawiamy do skutku.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Czy klient dostaje wszystko po zakończeniu projektu?</div>
+          <div class="faq-a">Tak. Przekazujemy pełen dostęp do domeny, hostingu, kodu strony i wszystkich materiałów graficznych. Żadnych blokad ani zależności od nas.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Czy pomagacie z treścią i zdjęciami?</div>
+          <div class="faq-a">Tak, w ograniczonym zakresie. Możemy pomóc opracować strukturę treści i zaproponować stockowe zdjęcia. Przy większych projektach wyceniamy copywriting osobno.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Czy można samodzielnie edytować stronę po wdrożeniu?</div>
+          <div class="faq-a">Tak. Na życzenie dostarczamy stronę opartą na systemie CMS (np. WordPress), dzięki któremu możesz samodzielnie zmieniać treści, zdjęcia i wpisy bez wiedzy technicznej.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Czy chatbot AI można dodać do istniejącej strony?</div>
+          <div class="faq-a">Tak. Chatbot to osobny moduł, który integrujemy z każdą istniejącą stroną — nie tylko tą zrobioną przez nas. Wystarczy jeden fragment kodu.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══ FINAL CTA ══ -->
+<div class="container">
+  <section id="kontakt">
+    <div class="cta-block">
+      <div class="cta-glow"></div>
+      <div class="cta-inner">
+        <div class="cta-left">
+          <div class="section-label">Zacznijmy</div>
+          <h2>Gotowy na stronę,<br>która robi różnicę?</h2>
+          <p>Wyślij brief i dowiedz się, co możemy dla Ciebie zrobić. Wycena jest bezpłatna i niezobowiązująca — odpiszemy w ciągu 24 godzin.</p>
+          <div class="cta-contacts">
+            <div class="cta-contact"><div class="cta-cicon">✉</div><span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="593236372d38322d193821382b3036772935">[email&#160;protected]</a></span></div>
+            <div class="cta-contact"><div class="cta-cicon">📞</div><span>+48 500 000 000</span></div>
+            <div class="cta-contact"><div class="cta-cicon">⏱</div><span>Odpowiadamy do 24 godzin</span></div>
+          </div>
+        </div>
+
+        <form class="cta-form" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="typ">Typ projektu</label>
+              <select id="typ" name="typ">
+                <option value="" disabled selected>Wybierz typ</option>
+                <option>Landing page</option>
+                <option>Strona firmowa</option>
+                <option>Projekt indywidualny</option>
+                <option>Chatbot AI</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="termin">Preferowany termin</label>
+              <select id="termin" name="termin">
+                <option value="" disabled selected>Wybierz termin</option>
+                <option>Jak najszybciej</option>
+                <option>W ciągu miesiąca</option>
+                <option>W tym kwartale</option>
+                <option>Elastyczny</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="email">Adres e-mail</label>
+            <input type="email" id="email" name="email" placeholder="twoj@email.pl" required />
+          </div>
+          <button type="submit" class="btn btn-primary form-submit">Wyślij zapytanie →</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER -->
+<div class="container">
+  <footer class="footer-rich">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">Axario</div>
+        <p class="footer-tagline">Premium studio projektowania stron internetowych dla firm usługowych w Polsce.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook">fb</a>
+          <a href="#" aria-label="Instagram">ig</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+        </div>
+      </div>
+      <div class="footer-nav-col">
+        <div class="footer-nav-label">Usługi</div>
+        <a href="#uslugi">Strona firmowa</a>
+        <a href="#uslugi">Landing page</a>
+        <a href="#chatbot">Chatbot AI</a>
+        <a href="#uslugi">Projekt indywidualny</a>
+      </div>
+      <div class="footer-nav-col">
+        <div class="footer-nav-label">Branże</div>
+        <a href="#demo">Kliniki i gabinety</a>
+        <a href="#demo">Agencje nieruchomości</a>
+        <a href="#demo">Firmy budowlane</a>
+        <a href="#demo">Inne branże</a>
+      </div>
+      <div class="footer-nav-col">
+        <div class="footer-nav-label">Wiedza</div>
+        <a href="blog.html">Blog o web design</a>
+        <a href="blog.html">Jak wybrać agencję?</a>
+        <a href="blog.html">Ile kosztuje strona?</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="footer-nav-col">
+        <div class="footer-nav-label">Kontakt</div>
+        <a href="mailto:kontakt@axario.pl">kontakt@axario.pl</a>
+        <a href="tel:+48500000000">+48 500 000 000</a>
+        <a href="#kontakt">Darmowa wycena</a>
+      </div>
+    </div>
+    <div class="footer-seo-text">
+      <p>Axario to agencja web design specjalizująca się w tworzeniu stron internetowych dla firm usługowych. Projektujemy strony dla klinik medycznych, agencji nieruchomości, firm budowlanych, gabinetów kosmetycznych i wielu innych branż. Oferujemy tworzenie stron www od 799 zł, w tym landing page, strony firmowe oraz rozwiązania z chatbotem AI. Działamy na terenie całej Polski — zdalnie i bez zbędnych formalności.</p>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 Axario Web Studio. Wszelkie prawa zastrzeżone.</div>
+      <div class="footer-bottom-links">
+        <a href="#">Polityka prywatności</a>
+        <a href="#">Regulamin</a>
+        <a href="blog.html">Blog</a>
+        <a href="#kontakt">Kontakt</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+
+<!-- FLOAT CHATBOT -->
 <div class="chat-floating" aria-hidden="false">
   <button class="chat-launcher" type="button" aria-label="Otwórz chat z asystentem AI">
     <span class="chat-launcher-dot">AI</span>
@@ -909,7 +1206,7 @@
     <div class="chat-window" id="chatWindowFloating" aria-live="polite"></div>
     <div class="chat-suggestions">
       <button type="button" class="suggestion-chip">Ile kosztuje strona firmowa?</button>
-      <button type="button" class="suggestion-chip">Czy blog pomaga w SEO?</button>
+      <button type="button" class="suggestion-chip">Czy możecie zrobić stronę dla kliniki?</button>
       <button type="button" class="suggestion-chip">Jak działa chatbot AI na stronie?</button>
     </div>
     <form id="chatFormFloating" class="chat-input-wrap" autocomplete="off">
@@ -919,61 +1216,6 @@
     <p class="chat-popup-footer">To demo. Na wdrożeniu chatbot może odpowiadać na pytania o ofertę, wycenę i kontakt.</p>
   </div>
 </section>
-
-<div class="container">
-  <footer class="footer-rich">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <div class="footer-logo">Axario</div>
-        <p class="footer-tagline">Premium studio projektowania stron internetowych dla firm usługowych w Polsce.</p>
-        <div class="footer-social">
-          <a href="#" aria-label="Facebook">fb</a>
-          <a href="#" aria-label="Instagram">ig</a>
-          <a href="#" aria-label="LinkedIn">in</a>
-        </div>
-      </div>
-      <div class="footer-nav-col">
-        <div class="footer-nav-label">Usługi</div>
-        <a href="index.html#uslugi">Strona firmowa</a>
-        <a href="index.html#cennik">Landing page</a>
-        <a href="index.html#chatbot">Chatbot AI</a>
-        <a href="index.html#uslugi">Projekt indywidualny</a>
-      </div>
-      <div class="footer-nav-col">
-        <div class="footer-nav-label">Branże</div>
-        <a href="index.html#demo">Kliniki i gabinety</a>
-        <a href="index.html#demo">Agencje nieruchomości</a>
-        <a href="index.html#demo">Firmy budowlane</a>
-        <a href="index.html#demo">Inne branże</a>
-      </div>
-      <div class="footer-nav-col">
-        <div class="footer-nav-label">Wiedza</div>
-        <a href="blog.html">Blog o web design</a>
-        <a href="blog.html">Jak wybrać agencję?</a>
-        <a href="blog.html">Ile kosztuje strona?</a>
-        <a href="index.html#faq">FAQ</a>
-      </div>
-      <div class="footer-nav-col">
-        <div class="footer-nav-label">Kontakt</div>
-        <a href="mailto:kontakt@axario.pl">kontakt@axario.pl</a>
-        <a href="tel:+48500000000">+48 500 000 000</a>
-        <a href="index.html#kontakt">Darmowa wycena</a>
-      </div>
-    </div>
-    <div class="footer-seo-text">
-      <p>Axario to agencja web design specjalizująca się w tworzeniu stron internetowych dla firm usługowych. Projektujemy strony dla klinik medycznych, agencji nieruchomości, firm budowlanych, gabinetów kosmetycznych i wielu innych branż. Oferujemy tworzenie stron www od 799 zł, w tym landing page, strony firmowe oraz rozwiązania z chatbotem AI. Działamy na terenie całej Polski — zdalnie i bez zbędnych formalności.</p>
-    </div>
-    <div class="footer-bottom">
-      <div class="footer-copy">© 2025 Axario Web Studio. Wszelkie prawa zastrzeżone.</div>
-      <div class="footer-bottom-links">
-        <a href="polityka-prywatnosci.html">Polityka prywatności</a>
-        <a href="#">Regulamin</a>
-        <a href="blog.html">Blog</a>
-        <a href="index.html#kontakt">Kontakt</a>
-      </div>
-    </div>
-  </footer>
-</div>
 
 <script>
   function addMessage(target, text, type) {
@@ -993,32 +1235,83 @@
     const chatForm = document.getElementById('chatFormFloating');
     const chatInput = document.getElementById('chatInputFloating');
     const chips = document.querySelectorAll('.chat-popup .suggestion-chip');
+
     if (chatWindow && !chatWindow.dataset.ready) {
-      addMessage(chatWindow, 'Cześć! Jestem asystentem Axario. Mogę podpowiedzieć, jaki typ strony wybrać i od czego zacząć.', 'bot');
+      addMessage(chatWindow, 'Cześć! Jestem asystentem Axario. Mogę podpowiedzieć, jaki typ strony wybrać i od czego zaczyna się wycena.', 'bot');
       chatWindow.dataset.ready = '1';
     }
-    function openPopup() { popup.classList.add('is-open'); overlay.classList.add('is-open'); if (chatInput) setTimeout(() => chatInput.focus(), 120); }
-    function closePopup() { popup.classList.remove('is-open'); overlay.classList.remove('is-open'); }
+
+    function openPopup() {
+      popup.classList.add('is-open');
+      overlay.classList.add('is-open');
+      if (chatInput) setTimeout(() => chatInput.focus(), 120);
+    }
+
+    function closePopup() {
+      popup.classList.remove('is-open');
+      overlay.classList.remove('is-open');
+    }
+
     launcher?.addEventListener('click', openPopup);
     closeBtn?.addEventListener('click', closePopup);
     overlay?.addEventListener('click', closePopup);
+
     function respond(text) {
       const lower = text.toLowerCase();
-      if (lower.includes('blog')) return 'Tak — blog pomaga łapać dodatkowe frazy z Google i wzmacnia strony usługowe.';
-      if (lower.includes('koszt') || lower.includes('cena')) return 'Landing page zaczyna się od 799 zł, a pełna strona firmowa od 2499 zł. Dokładna wycena zależy od zakresu.';
-      if (lower.includes('chatbot')) return 'Chatbot AI może odpowiadać 24/7, zbierać leady i wstępnie kwalifikować klientów.';
-      return 'Jasne — możemy podpowiedzieć najlepszy kierunek dla strony, bloga lub SEO.';
+      let reply = 'Jasne — przygotujemy bezpłatną wycenę po krótkim opisie branży, zakresu strony i terminu realizacji.';
+      if (lower.includes('koszt') || lower.includes('cena')) {
+        reply = 'Landing page zaczyna się od 799 zł, a pełna strona firmowa od 2499 zł. Dokładna wycena zależy od liczby podstron i funkcji.';
+      } else if (lower.includes('klin')) {
+        reply = 'Tak — projektujemy strony dla klinik i gabinetów. Możemy przygotować układ pod zabiegi, efekty, FAQ i formularze kontaktowe.';
+      } else if (lower.includes('chatbot')) {
+        reply = 'Chatbot AI może odpowiadać 24/7, zbierać leady i wstępnie kwalifikować klientów. W Axario wdrażamy go jako dodatek do strony lub osobno.';
+      } else if (lower.includes('wycena') || lower.includes('brief')) {
+        reply = 'Najprościej: wyślij krótki opis firmy i celu strony. Na tej podstawie wracamy z propozycją zakresu i wyceną.';
+      }
+      return reply;
     }
+
     function handleMessage(text) {
       const value = text.trim();
       if (!value || !chatWindow) return;
       addMessage(chatWindow, value, 'user');
       setTimeout(() => addMessage(chatWindow, respond(value), 'bot'), 350);
     }
+
     chips.forEach((chip) => chip.addEventListener('click', () => handleMessage(chip.textContent || '')));
-    chatForm?.addEventListener('submit', (e) => { e.preventDefault(); const value = chatInput.value; chatInput.value=''; handleMessage(value); });
+    chatForm?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const value = chatInput.value;
+      chatInput.value = '';
+      handleMessage(value);
+    });
   }
+
+  function setupDemoCards() {
+    document.querySelectorAll('.demo-card-new[data-demo-url]').forEach((card) => {
+      const url = card.getAttribute('data-demo-url');
+      if (!url) return;
+      card.addEventListener('click', () => window.open(url, '_blank'));
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          window.open(url, '_blank');
+        }
+      });
+    });
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-submit');
+    if (!btn) return;
+    btn.textContent = 'Wysłano! Odezwiemy się wkrótce ✓';
+    btn.style.background = 'linear-gradient(135deg,#16a34a,#4ade80)';
+    btn.style.color = '#fff';
+  }
+
   setupPopupChat();
+  setupDemoCards();
 </script>
 </body>
 </html>
