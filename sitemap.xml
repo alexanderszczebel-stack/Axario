@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://axario.pl/</loc></url>
-  <url><loc>https://axario.pl/blog.html</loc></url>
-  <url><loc>https://axario.pl/ile-kosztuje-strona-internetowa-dla-firmy.html</loc></url>
-  <url><loc>https://axario.pl/strona-firmowa-czy-landing-page.html</loc></url>
-  <url><loc>https://axario.pl/co-powinna-zawierac-strona-firmy-uslugowej.html</loc></url>
-  <url><loc>https://axario.pl/jak-przygotowac-materialy-do-strony-internetowej.html</loc></url>
+  <url><loc>https://axario.pl/</loc><priority>1.0</priority></url>
+  <url><loc>https://axario.pl/blog.html</loc><priority>0.9</priority></url>
+  <url><loc>https://axario.pl/ile-kosztuje-strona-internetowa-dla-firmy.html</loc><priority>0.8</priority></url>
+  <url><loc>https://axario.pl/strona-firmowa-czy-landing-page.html</loc><priority>0.8</priority></url>
+  <url><loc>https://axario.pl/co-powinna-zawierac-strona-firmy-uslugowej.html</loc><priority>0.8</priority></url>
+  <url><loc>https://axario.pl/jak-przygotowac-materialy-do-strony-internetowej.html</loc><priority>0.8</priority></url>
+  <url><loc>https://axario.pl/strony-internetowe-warszawa.html</loc><priority>0.8</priority></url>
+  <url><loc>https://axario.pl/landing-page-warszawa.html</loc><priority>0.8</priority></url>
+  <url><loc>https://axario.pl/chatbot-ai-na-strone.html</loc><priority>0.8</priority></url>
 </urlset>
