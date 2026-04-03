@@ -1,9 +1,12 @@
 const navToggle = document.querySelector('.nav-toggle');
 
 // Chatbot: API logic (shared by all chatbots on site)
+// ─── Zmień na swój URL Render po wdrożeniu backendu ───────
+const CHAT_API_URL = 'https://axario-chat-backend.onrender.com/api/chat';
+
 async function fetchChatbotReply(userMessage) {
   try {
-    const response = await fetch('/api/chat', {
+    const response = await fetch(CHAT_API_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

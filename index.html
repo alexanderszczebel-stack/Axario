@@ -1373,6 +1373,11 @@
 <section class="chat-popup" aria-label="Chat z asystentem AI" aria-hidden="true"><div class="chat-popup-inner"><header class="chat-popup-header"><div class="chat-popup-header-brand"><div class="chat-popup-avatar">AI</div><div class="chat-popup-header-title"><strong>Asystent Axario</strong><span>Odpowiada w kilka sekund • demo czatu</span></div></div></header><div class="chat-window chat-window-popup" id="chatWindowFloating" aria-live="polite"></div><div class="chat-suggestions"><button type="button" class="suggestion-chip">Ile kosztuje strona firmowa?</button><button type="button" class="suggestion-chip">Czy możecie zrobić stronę dla kliniki?</button><button type="button" class="suggestion-chip">Jak działa chatbot AI na stronie?</button></div><form id="chatFormFloating" class="chat-input-wrap" autocomplete="off"><input id="chatInputFloating" type="text" name="message" placeholder="Napisz wiadomość..." /><button type="submit" class="btn btn-primary">Wyślij</button></form><p class="chat-popup-footer">To demo. Na wdrożeniu chatbot może odpowiadać na pytania o ofertę, wycenę i kontakt.</p></div>
 </section><div class="demo-modal" id="demoModal" aria-hidden="true"><div class="demo-modal-backdrop" data-demo-close></div><div class="demo-modal-dialog" role="dialog" aria-modal="true" aria-label="Pełne demo strony"><div class="demo-modal-topbar"><span>Pełne demo strony</span><button class="demo-modal-topbar-btn" type="button" data-demo-close>Zamknij</button></div><div class="demo-modal-frame-wrap"><iframe id="demoModalFrame" title="Pełne demo strony"></iframe></div></div>
 </div><script>
+  // ─── Adres backendu na Render ──────────────────────────
+  // Zmień na swój URL po wdrożeniu backendu
+  const CHAT_API_URL = 'https://axario-chat-backend.onrender.com/api/chat';
+
+  // ─── Chat helper ────────────────────────────────────────
   function addMessage(target, text, type) {
     const div = document.createElement('div');
     div.className = 'message ' + type;
@@ -1381,15 +1386,52 @@
     target.scrollTop = target.scrollHeight;
   }
 
+  function addTyping(target) {
+    const wrap = document.createElement('div');
+    wrap.className = 'message bot typing';
+    const dots = document.createElement('div');
+    dots.className = 'typing-dots';
+    dots.setAttribute('aria-hidden', 'true');
+    for (let i = 0; i < 3; i++) {
+      const dot = document.createElement('span');
+      dot.className = 'typing-dot';
+      dots.appendChild(dot);
+    }
+    const sr = document.createElement('span');
+    sr.className = 'sr-only';
+    sr.textContent = 'Piszę odpowiedź';
+    wrap.appendChild(dots);
+    wrap.appendChild(sr);
+    target.appendChild(wrap);
+    target.scrollTop = target.scrollHeight;
+    return wrap;
+  }
+
+  // ─── Wysyłka do prawdziwego backendu ────────────────────
+  async function fetchChatbotReply(userMessage) {
+    try {
+      const res = await fetch(CHAT_API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: userMessage }),
+      });
+      if (!res.ok) throw new Error('Błąd serwera');
+      const data = await res.json();
+      return data.reply || 'Brak odpowiedzi od czatu.';
+    } catch {
+      return 'Ups! Problem z połączeniem. Napisz do nas: kontakt@axario.pl';
+    }
+  }
+
   function setupPopupChat() {
-    const launcher = document.querySelector('.chat-launcher');
-    const popup = document.querySelector('.chat-popup');
-    const overlay = document.querySelector('.chat-overlay');
-    const closeBtn = document.querySelector('.chat-popup-close');
+    const launcher  = document.querySelector('.chat-launcher');
+    const popup     = document.querySelector('.chat-popup');
+    const overlay   = document.querySelector('.chat-overlay');
+    const closeBtn  = document.querySelector('.chat-popup-close');
     const chatWindow = document.getElementById('chatWindowFloating');
-    const chatForm = document.getElementById('chatFormFloating');
-    const chatInput = document.getElementById('chatInputFloating');
-    const chips = document.querySelectorAll('.chat-popup .suggestion-chip');
+    const chatForm   = document.getElementById('chatFormFloating');
+    const chatInput  = document.getElementById('chatInputFloating');
+    const chips      = document.querySelectorAll('.chat-popup .suggestion-chip');
 
     if (chatWindow && !chatWindow.dataset.ready) {
       addMessage(chatWindow, 'Cześć! Jestem asystentem Axario. Mogę podpowiedzieć, jaki typ strony wybrać i od czego zaczyna się wycena.', 'bot');
@@ -1413,8 +1455,9 @@
     closeBtn?.addEventListener('click', closePopup);
     overlay?.addEventListener('click', closePopup);
 
+    // ─── Nav hamburger ─────────────────────────────────────
     const navToggle = document.querySelector('.nav-toggle');
-    const navLinks = document.querySelector('.nav-links');
+    const navLinks  = document.querySelector('.nav-links');
     navToggle?.addEventListener('click', () => {
       navToggle.classList.toggle('is-open');
       navLinks?.classList.toggle('is-open');
@@ -1429,26 +1472,27 @@
       });
     });
 
-    function respond(text) {
-      const lower = text.toLowerCase();
-      let reply = 'Jasne — przygotujemy bezpłatną wycenę po krótkim opisie branży, zakresu strony i terminu realizacji.';
-      if (lower.includes('koszt') || lower.includes('cena')) {
-        reply = 'Landing page zaczyna się od 799 zł, a pełna strona firmowa od 2499 zł. Dokładna wycena zależy od liczby podstron i funkcji.';
-      } else if (lower.includes('klin')) {
-        reply = 'Tak — projektujemy strony dla klinik i gabinetów. Możemy przygotować układ pod zabiegi, efekty, FAQ i formularze kontaktowe.';
-      } else if (lower.includes('chatbot')) {
-        reply = 'Chatbot AI może odpowiadać 24/7, zbierać leady i wstępnie kwalifikować klientów. W Axario wdrażamy go jako dodatek do strony lub osobno.';
-      } else if (lower.includes('wycena') || lower.includes('brief')) {
-        reply = 'Najprościej: wyślij krótki opis firmy i celu strony. Na tej podstawie wracamy z propozycją zakresu i wyceną.';
-      }
-      return reply;
-    }
-
-    function handleMessage(text) {
+    // ─── Wysyłka przez AI — bez hardcoded respond() ────────
+    async function handleMessage(text) {
       const value = text.trim();
       if (!value || !chatWindow) return;
+
       addMessage(chatWindow, value, 'user');
-      setTimeout(() => addMessage(chatWindow, respond(value), 'bot'), 350);
+      const typing = addTyping(chatWindow);
+
+      if (chatInput) chatInput.disabled = true;
+      const submitBtn = chatForm ? chatForm.querySelector('button[type="submit"]') : null;
+      if (submitBtn) submitBtn.disabled = true;
+
+      try {
+        const reply = await fetchChatbotReply(value);
+        addMessage(chatWindow, reply, 'bot');
+      } finally {
+        typing.remove();
+        if (chatInput) chatInput.disabled = false;
+        if (submitBtn) submitBtn.disabled = false;
+        if (chatInput) chatInput.focus();
+      }
     }
 
     chips.forEach((chip) => chip.addEventListener('click', () => handleMessage(chip.textContent || '')));
@@ -1459,7 +1503,8 @@
       handleMessage(value);
     });
   }
-  function setupDemoCards() {
+
+    function setupDemoCards() {
     const cards = document.querySelectorAll('.demo-card-new');
     const modal = document.getElementById('demoModal');
     const modalFrame = document.getElementById('demoModalFrame');
