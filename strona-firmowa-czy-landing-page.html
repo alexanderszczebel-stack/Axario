@@ -214,5 +214,26 @@ nav{
 <div class="container">
 <footer class="footer-rich"><div class="footer-top"><div><div class="footer-logo">Axario</div><p class="footer-tagline">Projektujemy strony internetowe dla firm, które mają wyglądać profesjonalnie i pomagać zdobywać klientów.</p></div><div class="footer-nav-col"><div class="footer-nav-label">Oferta</div><a href="index.html#uslugi">Strona firmowa</a><a href="index.html#uslugi">Landing page</a><a href="index.html#kontakt">Darmowa wycena</a></div><div class="footer-nav-col"><div class="footer-nav-label">Wiedza</div><a href="blog.html">Blog SEO</a><a href="ile-kosztuje-strona-internetowa-dla-firmy.html">Ile kosztuje strona?</a><a href="co-powinna-zawierac-strona-firmy-uslugowej.html">Co powinna zawierać strona?</a></div><div class="footer-nav-col"><div class="footer-nav-label">Kontakt</div><a href="mailto:axario.contact@gmail.com">axario.contact@gmail.com</a><span>Online w całej Polsce</span></div></div><div class="footer-bottom"><div>© 2026 Axario Web Studio.</div><div class="footer-bottom-links"><a href="blog.html">Blog</a><a href="index.html#faq">FAQ</a><a href="index.html#kontakt">Kontakt</a></div></div></footer>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const dotHTML = `<span class="chat-typing-dots"><span></span><span></span><span></span></span>`;
+  const phrases = ['Piszę odpowiedź', 'Pisze odpowiedź', 'Pisanie odpowiedzi'];
+  const replaceTyping = () => {
+    document.querySelectorAll('*').forEach(el => {
+      if (el.children.length === 0) {
+        const t = (el.textContent || '').trim();
+        if (phrases.includes(t)) {
+          el.innerHTML = dotHTML;
+        }
+      }
+    });
+  };
+  replaceTyping();
+  const observer = new MutationObserver(replaceTyping);
+  observer.observe(document.body, { childList: true, subtree: true });
+});
+</script>
+
 </body>
 </html>

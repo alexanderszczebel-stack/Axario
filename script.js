@@ -72,7 +72,7 @@ function setupChat(windowId, formId, inputId, chipsSelector, initialMessage) {
 
     const srText = document.createElement('span');
     srText.className = 'sr-only';
-    srText.textContent = 'Piszę odpowiedź';
+    srText.textContent = '<span class="chat-typing-dots"><span></span><span></span><span></span></span>';
 
     wrapper.appendChild(dots);
     wrapper.appendChild(srText);
