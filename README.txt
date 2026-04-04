@@ -26,5 +26,6 @@ Dodatkowo dodane w tej wersji:
 - blog.html + 3 artykuły
 - projektowanie-stron-www-warszawa.html
 - polityka-prywatnosci.html
+-realizacje.html
 - rozszerzona sitemap.xml
 - poprawki mobile UX
