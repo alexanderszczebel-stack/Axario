@@ -153,25 +153,30 @@ function showFormSuccessOverlay() {
 }
 
 if (quoteForm) {
-  let formNote = document.getElementById('formNote');
-  if (!formNote) {
-    formNote = document.createElement('p');
-    formNote.id = 'formNote';
-    formNote.className = 'form-note';
-    quoteForm.appendChild(formNote);
-  }
+  const formNote = document.getElementById('formNote');
 
   quoteForm.addEventListener('submit', async (event) => {
+    // Blokuj natywny submit — zostajemy na stronie
     event.preventDefault();
+    event.stopPropagation();
+
+    // Walidacja pól wymaganych
+    if (!quoteForm.checkValidity()) {
+      quoteForm.reportValidity();
+      return;
+    }
 
     const submitBtn = quoteForm.querySelector('button[type="submit"]');
     const originalText = submitBtn ? submitBtn.textContent : '';
+
     if (submitBtn) {
       submitBtn.disabled = true;
       submitBtn.textContent = 'Wysyłanie…';
     }
-    formNote.textContent = '';
-    formNote.className = 'form-note';
+    if (formNote) {
+      formNote.textContent = '';
+      formNote.className = 'form-note';
+    }
 
     try {
       const response = await fetch('https://formspree.io/f/xqeyrnoa', {
@@ -181,22 +186,29 @@ if (quoteForm) {
       });
 
       if (response.ok) {
-        formNote.textContent = 'Wiadomość wysłana. Odezwiemy się w 1–2 dni robocze.';
-        formNote.className = 'form-note success';
+        // Sukces — reset + animacja ptaszka, zostajemy na stronie
         quoteForm.reset();
         showFormSuccessOverlay();
+        if (formNote) {
+          formNote.textContent = 'Wiadomość wysłana! Odezwiemy się w 1–2 dni robocze.';
+          formNote.className = 'form-note success';
+        }
       } else {
         const data = await response.json().catch(() => ({}));
         const msg =
           data.errors && data.errors.length
             ? data.errors.map((e) => e.message).join(', ')
             : 'Coś poszło nie tak. Spróbuj ponownie później.';
-        formNote.textContent = msg;
-        formNote.className = 'form-note error';
+        if (formNote) {
+          formNote.textContent = msg;
+          formNote.className = 'form-note error';
+        }
       }
     } catch {
-      formNote.textContent = 'Błąd połączenia. Sprawdź internet i spróbuj ponownie.';
-      formNote.className = 'form-note error';
+      if (formNote) {
+        formNote.textContent = 'Błąd połączenia. Sprawdź internet i spróbuj ponownie.';
+        formNote.className = 'form-note error';
+      }
     } finally {
       if (submitBtn) {
         submitBtn.disabled = false;
