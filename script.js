@@ -137,9 +137,22 @@ setupChat(
 );
 
 const quoteForm = document.getElementById('quoteForm');
+const formSuccessOverlay = document.getElementById('formSuccessOverlay');
+let formSuccessTimeout;
+
+function showFormSuccessOverlay() {
+  if (!formSuccessOverlay) return;
+  window.clearTimeout(formSuccessTimeout);
+  formSuccessOverlay.classList.add('active');
+  formSuccessOverlay.setAttribute('aria-hidden', 'false');
+
+  formSuccessTimeout = window.setTimeout(() => {
+    formSuccessOverlay.classList.remove('active');
+    formSuccessOverlay.setAttribute('aria-hidden', 'true');
+  }, 1600);
+}
 
 if (quoteForm) {
-  // Jeśli strona nie ma #formNote w HTML, tworzymy go dynamicznie
   let formNote = document.getElementById('formNote');
   if (!formNote) {
     formNote = document.createElement('p');
@@ -171,6 +184,7 @@ if (quoteForm) {
         formNote.textContent = 'Wiadomość wysłana. Odezwiemy się w 1–2 dni robocze.';
         formNote.className = 'form-note success';
         quoteForm.reset();
+        showFormSuccessOverlay();
       } else {
         const data = await response.json().catch(() => ({}));
         const msg =
