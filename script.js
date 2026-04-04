@@ -243,3 +243,55 @@ setupChat(
   'Cześć, tu szybki podgląd, jak może działać chatbot na Twojej stronie. Napisz, o co chcesz zapytać.',
 );
 
+const quoteForm = document.getElementById('quoteForm');
+const successOverlay = document.getElementById('formSuccessOverlay');
+
+if (quoteForm) {
+  quoteForm.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const submitButton =
+      quoteForm.querySelector('button[type="submit"]') ||
+      quoteForm.querySelector('input[type="submit"]');
+
+    const originalButtonText = submitButton ? submitButton.textContent : '';
+    const formData = new FormData(quoteForm);
+
+    try {
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = 'Wysyłanie...';
+      }
+
+      const response = await fetch(quoteForm.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          Accept: 'application/json'
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error('Błąd wysyłki formularza');
+      }
+
+      quoteForm.reset();
+
+      if (successOverlay) {
+        successOverlay.classList.add('is-visible');
+
+        setTimeout(() => {
+          successOverlay.classList.remove('is-visible');
+        }, 1600);
+      }
+    } catch (error) {
+      alert('Nie udało się wysłać formularza. Spróbuj ponownie.');
+      console.error(error);
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = originalButtonText;
+      }
+    }
+  });
+}
