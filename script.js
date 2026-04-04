@@ -156,15 +156,9 @@ if (quoteForm) {
   const formNote = document.getElementById('formNote');
 
   quoteForm.addEventListener('submit', async (event) => {
-    // Blokuj natywny submit — zostajemy na stronie
+    // Zawsze blokuj natywny submit — zostajemy na stronie
     event.preventDefault();
     event.stopPropagation();
-
-    // Walidacja pól wymaganych
-    if (!quoteForm.checkValidity()) {
-      quoteForm.reportValidity();
-      return;
-    }
 
     const submitBtn = quoteForm.querySelector('button[type="submit"]');
     const originalText = submitBtn ? submitBtn.textContent : '';
