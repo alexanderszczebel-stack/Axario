@@ -1285,7 +1285,123 @@
     @keyframes formCheck {
       to { stroke-dashoffset: 0; }
     }
-
+#case-study { padding: 34px 0 14px; }
+    .case-study-header {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+      gap: 28px;
+      align-items: end;
+      margin-bottom: 34px;
+    }
+    .case-study-header h2 {
+      font-family: Inter, sans-serif;
+      font-size: clamp(32px, 5vw, 58px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      max-width: 760px;
+    }
+    .case-study-header p {
+      color: var(--text-secondary);
+      max-width: 560px;
+      font-size: 17px;
+    }
+    .case-study-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 26px;
+    }
+    .case-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 30px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: linear-gradient(180deg, rgba(11,21,37,0.96) 0%, rgba(7,14,24,0.98) 100%);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.34);
+    }
+    .case-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -20% -30% auto;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(96,165,250,0.16) 0%, rgba(96,165,250,0) 72%);
+      pointer-events: none;
+    }
+    .case-shot {
+      position: relative;
+      padding: 26px 26px 0;
+    }
+    .case-shot-frame {
+      position: relative;
+      overflow: hidden;
+      border-radius: 26px 26px 0 0;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: #eff4fb;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04);
+      aspect-ratio: 1.28 / 1;
+    }
+    .case-shot-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .case-pill {
+      position: absolute;
+      left: 22px;
+      bottom: -18px;
+      z-index: 2;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(240,246,255,0.96);
+      color: #153057;
+      font-size: 14px;
+      font-weight: 700;
+      box-shadow: 0 12px 34px rgba(7,14,24,0.2);
+    }
+    .case-content {
+      padding: 34px 28px 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .case-content h3 {
+      font-size: clamp(24px, 3vw, 34px);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+    .case-content p {
+      color: var(--text-secondary);
+      font-size: 16px;
+      max-width: 540px;
+    }
+    .case-tags {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+    .case-tags span {
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.045);
+      color: var(--text-primary);
+      font-size: 13px;
+      font-weight: 600;
+    }
+    @media (max-width: 760px) {
+      .case-study-header { grid-template-columns: 1fr; }
+      .case-study-grid { grid-template-columns: 1fr; }
+      #case-study { padding-top: 12px; }
+      .case-shot { padding: 18px 18px 0; }
+      .case-content { padding: 30px 20px 22px; }
+      .case-pill { left: 18px; font-size: 13px; }
+      .case-study-header p { font-size: 15px; }
+    }
 </style></head>
 <body><!-- NAV -->
 <nav id="nav"><a class="nav-logo" href="#">Axario</a><ul class="nav-links"><li><a href="#uslugi">Usługi</a></li><li><a href="#cennik">Cennik</a></li><li><a href="blog.html">Blog</a></li><li><a href="#faq">FAQ</a></li></ul><a href="#kontakt" class="nav-cta">Darmowa wycena</a><button class="nav-toggle" type="button" aria-label="Otwórz menu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -1309,6 +1425,7 @@
 </div><!-- ══ PROCES ══ -->
 <div class="container">
 </div><!-- ══ CENNIK ══ -->
+  <div class="container"><section id="case-study"><div class="case-study-header"><div><div class="section-label">Realizacja</div><h2>Przykład realizacji dla marki<br>GYN-CARE</h2></div><div><p>Dwie sekcje z projektu strony kliniki ginekologicznej GYN-CARE. Układ jest utrzymany w estetyce zaufania, medycznej przejrzystości i czytelnej prezentacji oferty.</p></div></div><div class="case-study-grid"><article class="case-card"><div class="case-shot"><div class="case-shot-frame"><img src="assets/realizacje/gyncare-hero.jpg" alt="Realizacja strony GYN-CARE — sekcja hero" loading="lazy" /></div><div class="case-pill">Hero sekcja</div></div><div class="case-content"><h3>GYN-CARE — główna sekcja startowa</h3><p>Pierwszy ekran budujący wiarygodność marki: zespół medyczny, szybki kontakt oraz spokojna, kliniczna estetyka dopasowana do branży.</p><div class="case-tags"><span>Medycyna</span><span>Klinika</span><span>Hero</span></div></div></article><article class="case-card"><div class="case-shot"><div class="case-shot-frame"><img src="assets/realizacje/gyncare-oferta.jpg" alt="Realizacja strony GYN-CARE — sekcja oferty" loading="lazy" /></div><div class="case-pill">Sekcja oferty</div></div><div class="case-content"><h3>GYN-CARE — prezentacja usług</h3><p>Sekcja pokazująca najważniejsze obszary usług w czytelnym układzie kafli, dzięki czemu pacjentka szybciej rozumie ofertę i może przejść dalej.</p><div class="case-tags"><span>Oferta</span><span>UX</span><span>Usługi</span></div></div></article></div></section></div>
 <div class="container"><section id="cennik"><div class="cennik-header"><div class="section-label">Inwestycja</div><h2 class="section-h2" id="ceny">Cennik tworzenia stron<br>bez ukrytych kosztów</h2><p class="section-sub" style="margin:0 auto;">Trzy pakiety projektowania stron www — każdy dopasowany do innego etapu rozwoju firmy.</p></div><div class="cennik-grid"><div class="cennik-card"><div class="cennik-num">01</div><h3>Landing page</h3><p>Jedna strona pod konkretną usługę lub ofertę. Używana głównie do reklam albo szybkiego zbierania zapytań.</p><div class="cennik-price"><div class="cennik-price-label">Cena od</div><div class="cennik-price-value">799 zł <small>— 1800 zł</small></div></div></div><div class="cennik-card featured"><div class="cennik-num">02</div><h3>Strona firmowa</h3><p>Pełna strona firmy z podstronami: oferta, realizacje, kontakt. Dla klientów, którzy chcą mieć wszystko w jednym miejscu.</p><div class="cennik-price"><div class="cennik-price-label">Cena od</div><div class="cennik-price-value">2499 zł</div></div></div><div class="cennik-card"><div class="cennik-num">03</div><h3>Projekt indywidualny</h3><p>Większe projekty z niestandardowym układem, większą liczbą podstron albo dodatkowymi funkcjami.</p><div class="cennik-price"><div class="cennik-price-label">Wycena</div><div class="cennik-price-value" style="font-size:22px;">Indywidualna</div></div></div></div><div class="cennik-bottom"><p>Nie jesteś pewny, który pakiet pasuje do Twojej firmy? Napisz do nas — doradzimy bezpłatnie.</p><a href="#kontakt" class="btn btn-primary">Zapytaj o wycenę</a></div></section>
 </div><!-- ══ CHATBOT / AI ══ -->
 <div class="container"><section id="chatbot"><div class="chatbot-inner"><div class="chatbot-left"><div class="section-label">AI Add-on</div><h2>Asystent, który<br>pracuje za Ciebie<br><em>24 godziny.</em></h2><p>Inteligentny chatbot zintegrowany z Twoją stroną. Odpowiada na pytania, zbiera dane kontaktowe i wstępnie kwalifikuje leady — zanim jeszcze odezwiesz się do klienta.</p><div class="chat-features"><div class="chat-feat"><div class="chat-feat-icon">👋</div><div class="chat-feat-text"><strong>Wita odwiedzających</strong><span>Angażuje od razu — zanim klient zdecyduje się wyjść.</span></div></div><div class="chat-feat"><div class="chat-feat-icon">💬</div><div class="chat-feat-text"><strong>Odpowiada na pytania</strong><span>Ceny, terminy, zakres usług — bez Twojego udziału.</span></div></div><div class="chat-feat"><div class="chat-feat-icon">🎯</div><div class="chat-feat-text"><strong>Kwalifikuje leady</strong><span>Do Ciebie trafiają tylko poważni klienci.</span></div></div><div class="chat-feat"><div class="chat-feat-icon">🌙</div><div class="chat-feat-text"><strong>Dostępny całą dobę</strong><span>Działa niezależnie od godzin pracy Twojej firmy.</span></div></div></div><div class="chatbot-price"><strong>od 400 zł</strong></div></div><div><div class="chat-window"><div class="chat-topbar"><div class="chat-avatar">🤖</div><div><div class="chat-name">Asystent Axario</div><div class="chat-status">Asystent AI Twojej firmy</div></div><div class="chat-online-badge"><div class="chat-dot"></div>Online</div></div><div class="chat-msgs"><div class="msg bot">Cześć! 👋 W czym mogę pomóc? Chętnie odpowiem na pytania lub umówię rozmowę z zespołem.</div><div class="msg user">Ile kosztuje strona firmowa?</div><div class="msg bot">Strona firmowa zaczyna się od 2499 zł. Cena zależy od liczby podstron i funkcji. Mogę zebrać kilka informacji i przygotować wycenę — zajmie to 2 minuty. 😊</div><div class="msg user">Chętnie, proszę.</div><div class="msg bot">Świetnie! Czym zajmuje się Twoja firma i czy masz już gotowe treści lub zdjęcia?</div></div><div class="chat-inputbar"><input class="chat-inputfield" type="text" placeholder="Napisz wiadomość…" readonly /><button class="chat-sendbtn">→</button></div></div></div></div></section>
