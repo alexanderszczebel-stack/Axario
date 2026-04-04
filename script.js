@@ -174,7 +174,7 @@ if (quoteForm) {
     formNote.className = 'form-note';
 
     try {
-      const response = await fetch(quoteForm.action, {
+      const response = await fetch('https://formspree.io/f/xqeyrnoa', {
         method: 'POST',
         body: new FormData(quoteForm),
         headers: { Accept: 'application/json' },
@@ -295,3 +295,4 @@ if (quoteForm) {
     }
   });
 }
+console.log('SCRIPT JS DZIALA');
